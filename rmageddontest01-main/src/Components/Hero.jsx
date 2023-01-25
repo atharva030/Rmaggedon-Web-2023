@@ -17,7 +17,7 @@ const Hero = () => {
           </h1>
         </div>
 
-        <h1 className="font-poppins  font-semibold ss:text-[64px] text-[64px] text-white ss:leading-[80.8px] leading-[75px] w-full">
+        <h1 className="font-poppins  font-semibold ss:text-[76px] text-[52px]  text-white ss:leading-[80.8px] leading-[75px] w-full">
         Experience the <br/>future of robotics
         </h1>
         <p className={`${styles.paragraph} max-w-[470px] mt-5`}>

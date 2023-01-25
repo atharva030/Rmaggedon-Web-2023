@@ -4,11 +4,11 @@ import Button from "./Button";
 
 const FeatureCard = ({ title, content, index }) => (
   <div
-    className={`w-7/12 reward-border flex flex-row p-6 rounded-[20px] ${
+    className={`flex flex-row p-6 rounded-[20px] ${
       index !== features.length - 1 ? "mb-6" : "mb-0"
     } feature-card`}
   >
-    <div className="flex-1 flex flex-col ml-3">
+    <div className="flex-1 flex flex-col ml-3 ">
       <h4 className="font-poppins font-semibold text-white text-[18px] leading-[23.4px] mb-1">
         {title}
       </h4>

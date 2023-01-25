@@ -18,7 +18,7 @@ const Footer = () => (
         </p>
       </div>
       <div className="flex-[0] w-full flex flex-row justify-between flex-wrap md:mt-0 mt-10">
-        <div className={`flex flex-col items-end ss:my-0 min-w-[150px]`}>
+        <div className={`flex flex-col items-start ss:my-0 min-w-[150px]`}>
           {/* otherlinks */}
           <h4 className="font-poppins font-medium text-[15px] leading-[27px] text-white">
             Powered By
