@@ -21,7 +21,7 @@ const Footer = () => (
         <div className={`flex flex-col items-end ss:my-0 min-w-[150px]`}>
           {/* otherlinks */}
           <h4 className="font-poppins font-medium text-[15px] leading-[27px] text-white">
-            Our Sponsor
+            Powered By
           </h4>
           <img src={idea_logo} className="sponsor_img"/>
           
