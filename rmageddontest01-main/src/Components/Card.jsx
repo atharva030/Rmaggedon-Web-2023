@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import ninja_turtle from "../assets/ninja_turtle.png";
 import pac_man from "../assets/pac_man.png";
 import retromania from "../assets/retromania.png";
@@ -33,7 +34,7 @@ const Card = () => {
                   winner.
                 </p>
                 <div className=" justify-center flex ">
-                  <Button styles={`mt-7`} className="sm: card-btn" />
+                  <Button styles={`mt-7`} className="sm: card-btn" onclick/>
                 </div>
               </div>
             </div>
