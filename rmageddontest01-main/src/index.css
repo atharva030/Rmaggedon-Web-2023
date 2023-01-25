@@ -142,25 +142,11 @@ body {
   font-family: "Poppins"
   
 }
-/* Hide scrollbar for Chrome, Safari and Opera */
-.example::-webkit-scrollbar {
+/* scrollbar remove */
+body::-webkit-scrollbar{
   display: none;
 }
-.sponsor_img{
-      margin-top: 8px;
-      width: 84px;
-      border-radius: 15px;
-}
-/* Hide scrollbar for IE, Edge and Firefox */
-.example {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-:disabled {
-  cursor: not-allowed;
-  /* color: black; */
-}
-;
+
 .head-image{
   object-fit: contain !important;
     scale: 1.2 !important;

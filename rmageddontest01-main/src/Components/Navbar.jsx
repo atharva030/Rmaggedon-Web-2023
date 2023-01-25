@@ -74,9 +74,9 @@ const Navbar = () => {
         <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mr-6`}>
           <a href="#connect">Connect</a>
         </li>
-        <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mr-6`}>
+        {/* <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mr-6`}>
           <a href="#register">Register</a>
-        </li>
+        </li> */}
       </ul>
       <div className="md:hidden flex flex-1 justify-end items-center">
         <img
@@ -90,17 +90,17 @@ const Navbar = () => {
             } p-6 bg-black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl sidebar z-30 `}
         >
           <ul className="list-none flex justify-end items-start flex-1 flex-col">
-            <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mb-1`}>
-              <a href="/">Home</a>
+            <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mb-2`}>
+            <a href="/">Home</a>
             </li>
             <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mb-2 `}>
-              <a href="/treasure">Treasure</a>
+            <a href="#treasure">Treasure</a>
             </li>
-            <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mb-3 `}>
-              <a href="/battels">Battles</a>
+            <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mb-2 `}>
+               <a href="#battles">Battles</a>
             </li>
-            <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mb-4`}>
-              <a href="/Contact">Connect</a>
+            <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mb-2`}>
+            <a href="#connect">Connect</a>
             </li>
           </ul>
         </div>
