@@ -18,6 +18,10 @@
 * {
   scroll-behavior: smooth;
 }
+.sponsor_img{
+  width: 82px;
+  border-radius: 15px;
+}
 .social{
   display: inline-block;
   width: 33px !important;
