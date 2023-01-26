@@ -8,6 +8,8 @@ import styles from "./style";
 //   Registation,
 //   Card,
 // } from "./components";
+import ReactGA from "react-ga";
+import { useEffect } from "react";
 
 import NavBar from "./Components/Navbar";
 import Hero from "./Components/Hero";
@@ -19,7 +21,19 @@ import Footer from "./Components/Footer";
 import Form from "./Components/Form";
 import { Route, Routes } from "react-router-dom";
 import Loader from "./Components/Loader";
-  const App = () => {
+
+// const Tracking_ID = "UA-255240728-1";
+
+
+const App = () => {
+  const Tracking_ID = "UA-255196717-1";
+
+  ReactGA.initialize(Tracking_ID);
+  useEffect(() => {
+
+
+    ReactGA.pageview(window.location.pathname);
+  }, []);
   // const [isLoading, setLoading] = useState(false);
   // const [loading, setLoading] = useState(true);
   // useEffect(() => {
@@ -57,7 +71,7 @@ import Loader from "./Components/Loader";
         </div>
       </div>
       {/* <Trial/> */}
-      {/* <Form /> */}
+      <Form />
     </div>
 
     //   )}
