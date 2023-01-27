@@ -77,7 +77,7 @@ const Registation = () => {
               <img
                 className="w-[28rem] h-[28rem] object-cover xl:w-[34rem] xl:h-[34rem] rounded-full bg-black-gradient"
                 src={step_image}
-                alt="/"
+                alt="image"
               />
             </a>
           </div>

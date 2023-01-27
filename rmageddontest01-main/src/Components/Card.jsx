@@ -25,7 +25,7 @@ const Card = () => {
                 <div className="space-y-1">
                   <img
                     src={pac_man}
-                    alt=""
+                    alt="pacman image"
                     className=" rounded-full w-[150px] h-[150px] mb-6  mx-auto"
                   />
                   <p className="text-lg font-semibold text-gradient text-center">
@@ -55,7 +55,7 @@ const Card = () => {
                 <div className="space-y-1">
                   <img
                     src={retromania}
-                    alt=""
+                    alt="retromania image"
                     className="rounded-full w-[150px] h-[150px] mb-6  mx-auto"
                   />
                   <p className="text-lg font-semibold text-gradient text-center">
@@ -84,7 +84,7 @@ const Card = () => {
                 <div className="space-y-1">
                   <img
                     src={ninja_turtle}
-                    alt=""
+                    alt="ninja turtle image"
                     className="rounded-full w-[150px] h-[150px] mb-6  mx-auto"
                   />
                   <p className="text-lg font-semibold text-gradient text-center">
