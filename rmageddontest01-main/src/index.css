@@ -105,7 +105,11 @@
     transform: translateY(0);
   }
 }
-
+legend::after{
+  content: "*";
+  background:red ;
+  -webkit-background-clip: text;
+}
 @keyframes slide-top {
   0% {
     -webkit-transform: translateY(100px);

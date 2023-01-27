@@ -106,7 +106,9 @@ option{
   background: linear-gradient(-168.39deg, #ffffff -278.56%, #6d6d6d -78.47%, #11101d 91.61%);
   background-color: #11101d;
 }
-
+.req_field{
+  color: white;
+}
 .mem{
   margin-top: -40px;
   /* margin-right: 280px; */
@@ -114,10 +116,20 @@ option{
   padding: 0px;
   
 }
-
-input:focus {
-  border-bottom: 0.2vw solid #0073e6;
+.capcha-flex{
+  display: flex;
+  width: 98%;
+  justify-content: left;
 }
+.captha {
+  height: 70px;
+  width: 300px;
+  display: none;
+  background: transparent; 
+}
+/* ::placeholder {
+ margin-bottom: 10px !important;
+} */
 
 input:valid {
   border-color: rgb(72, 249, 75);
@@ -204,7 +216,12 @@ input:valid {
   0 0 8px hsla(161, 100%, 44%, 1);
 transition: 0.7s;
 }
-
+.cursor:hover{
+  cursor: pointer;
+}
+.cursor-skip:hover{
+  cursor: not-allowed;
+}
 #button {
   position: relative ;
   padding: 0.8em 1.8em;

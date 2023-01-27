@@ -1,13 +1,5 @@
 import styles from "./style";
-// import {
-//   Reward,
-//   Footer,
-//   Navbar,
-//   Hero,
-//   Attraction,
-//   Registation,
-//   Card,
-// } from "./components";
+
 import ReactGA from "react-ga";
 import NavBar from "./Components/Navbar";
 import Hero from "./Components/Hero";
@@ -17,7 +9,7 @@ import Registation from "./Components/Registation";
 import Card from "./Components/Card";
 import Footer from "./Components/Footer";
 import rmageddon from "./assets/Rmageddon_logo.png";
-
+import { Helmet } from "react-helmet";
 import Form from "./Components/Form";
 import { Route, Routes } from "react-router-dom";
 import Loader from "./Components/Loader";
@@ -35,6 +27,17 @@ const App = () => {
     //     <Loader loading={loading} />
     //   ) : (
     <>
+     <Helmet>
+        <title>Rmageddon 2023</title>
+        <meta
+          name="description"
+          content="Unleash the full potential of your robotic creations and showcase your skills to the elite in the field of robotics at RNXG. Compete for recognition and prizes at Rmageddon and be a part of the most exciting college robotics event of the year!"
+        />
+        <meta
+          name="keywords"
+          content="rnxg,rmageddon23,rmageddon,robotics,sggs,prizes, pac runner, retromania, ninja clash, competition, idealab"
+        />
+      </Helmet>
       <div className="bg-primary w-full overflow-hidden">
         <div className={`${styles.paddingX} ${styles.flexCenter}`}>
           <div className={`${styles.boxWidth}`}>
