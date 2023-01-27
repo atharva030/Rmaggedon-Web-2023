@@ -17,7 +17,9 @@ import { useEffect } from "react";
 const App = () => {
   const TRACKING_ID = "UA-255175997-1";
   ReactGA.initialize(TRACKING_ID);
-
+  // npm i react-ga4 
+  // ReactGA.initialize("MEASUREMENT_ID") FROM REACT GA4 LATEST 
+  // ReactGA.send({ hitType: "pageview", page: "/" });
   useEffect(() => {
     ReactGA.pageview(location.pathname + location.search);
   }, [location]);

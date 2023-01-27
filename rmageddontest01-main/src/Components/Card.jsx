@@ -16,7 +16,7 @@ const Card = () => {
         />
       </Helmet>
       <section id="battles" name="battles">
-        <div className="grid lg:grid-cols-3 gap-[8rem] text-green-400 py-10 h-full w-full ">
+        <div className="grid lg:grid-cols-3 gap-[7rem] text-green-400 py-10 h-full w-full ">
           <script src="https://cdn.tailwindcss.com" />
           <div className="flex h-screen items-center ml-[-2rem] ">
             <div className="w-10/12 group relative mx-auto w-[350px] overflow-hidden rounded-[16px] bg-gray-300 p-[1px] transition-all duration-300 ease-in-out hover:bg-gradient-to-r hover:from-[#00df9a]  hover:to-[#DFFA2D]">
