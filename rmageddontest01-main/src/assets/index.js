@@ -6,7 +6,11 @@ import close from "./close.svg";
 import rmageddon from "./Rmageddon_logo.png";
 import step_image from "./step_image.png";
 import youtube from "./youtube.svg";
-import rmageddon_logo_anim from "./rmageddon_logo.anim.json";
+import rnxg from "./8ATl2Bcmkc.json"
+import rnxgmp4 from "./rnxgmp4.json"
+import roborace from "./nddvb7S7R6.json"
+import rmageddon_logo from "./rmageddon_logo.anim.json"
+import mario from "./mario lodder .json"
 export {
   facebook,
   instagram,
@@ -16,5 +20,9 @@ export {
   rmageddon,
   step_image,
   youtube,
-  rmageddon_logo_anim,
+ rnxg,
+ rnxgmp4,
+ roborace,
+ rmageddon_logo,
+ mario
 };
