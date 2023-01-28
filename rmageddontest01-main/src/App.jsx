@@ -9,10 +9,7 @@ import Registation from "./Components/Registation";
 import Card from "./Components/Card";
 import Footer from "./Components/Footer";
 import rmageddon from "./assets/Rmageddon_logo.png";
-<<<<<<< HEAD
 import { Helmet } from "react-helmet";
-=======
->>>>>>> a8dba5a (adding lodder mario json file)
 import Form from "./Components/Form";
 import { Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
@@ -28,7 +25,6 @@ setTimeout(()=>{
 setLoading(false)
 },2000)
   },[])
-
   // npm i react-ga4 
   // ReactGA.initialize("MEASUREMENT_ID") FROM REACT GA4 LATEST 
   // ReactGA.send({ hitType: "pageview", page: "/" });
@@ -36,12 +32,7 @@ setLoading(false)
     ReactGA.pageview(location.pathname + location.search);
   }, [location]);
   return (
-<<<<<<< HEAD
-    // <div>
-    //   {loading ? (
-    //     <Loader loading={loading} />
-    //   ) : (
-    <>
+      <>
      <Helmet>
         <title>Rmageddon 2023</title>
         <meta
@@ -53,19 +44,14 @@ setLoading(false)
           content="rnxg,rmageddon23,rmageddon,robotics,sggs,prizes, pac runner, retromania, ninja clash, competition, idealab"
         />
       </Helmet>
-      <div className="bg-primary w-full overflow-hidden">
-        <div className={`${styles.paddingX} ${styles.flexCenter}`}>
-          <div className={`${styles.boxWidth}`}>
-            <NavBar />
-=======
-    <>{loading ? (<Loader/>) : (
+    {loading ? (<Loader/>) : (
       <div>
         <div className="bg-primary w-full overflow-hidden">
           <div className={`${styles.paddingX} ${styles.flexCenter}`}>
             <div className={`${styles.boxWidth}`}>
               <NavBar />
             </div>
->>>>>>> a8dba5a (adding lodder mario json file)
+
           </div>
           <div className={`bg-primary ${styles.flexStart}`}>
             <div className={`${styles.boxWidth}`}>
@@ -86,7 +72,8 @@ setLoading(false)
           {/* <Form /> */}
         </div>
 
-      </div>)}
+      </div>
+      )}
      </>
   );
 };
