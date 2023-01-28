@@ -1,5 +1,4 @@
 import styles from "./style";
-
 import ReactGA from "react-ga";
 import NavBar from "./Components/Navbar";
 import Hero from "./Components/Hero";
@@ -23,13 +22,16 @@ const App = () => {
   useEffect(() => {
     ReactGA.pageview(location.pathname + location.search);
   }, [location]);
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+    setLoading(false)
+    }, 1500)
+  },[])
   return (
-    // <div>
-    //   {loading ? (
-    //     <Loader loading={loading} />
-    //   ) : (
     <>
-     <Helmet>
+      <Helmet>
         <title>Rmageddon 2023</title>
         <meta
           name="description"
@@ -40,30 +42,33 @@ const App = () => {
           content="rnxg,rmageddon23,rmageddon,robotics,sggs,prizes, pac runner, retromania, ninja clash, competition, idealab"
         />
       </Helmet>
-      <div className="bg-primary w-full overflow-hidden">
-        <div className={`${styles.paddingX} ${styles.flexCenter}`}>
-          <div className={`${styles.boxWidth}`}>
-            <NavBar />
+      {loading ? (<Loader/>) : (
+        <div>
+          <div className="bg-primary w-full overflow-hidden">
+            <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+              <div className={`${styles.boxWidth}`}>
+                <NavBar />
+              </div>
+            </div>
+            <div className={`bg-primary ${styles.flexStart}`}>
+              <div className={`${styles.boxWidth}`}>
+                <Hero />
+                {/* {state ? <Loader state={state}/> :<Hero/>} */}
+              </div>
+            </div>
+            <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
+              <div className={`${styles.boxWidth}`}>
+                <Attraction />
+                <Reward />
+                {/* <Registation /> */}
+                <Card />
+                <Footer />
+              </div>
+            </div>
+            {/* <Trial/> */}
+            {/* <Form /> */}
           </div>
-        </div>
-        <div className={`bg-primary ${styles.flexStart}`}>
-          <div className={`${styles.boxWidth}`}>
-            <Hero />
-          </div>
-        </div>
-
-        <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
-          <div className={`${styles.boxWidth}`}>
-            <Attraction />
-            <Reward />
-            {/* <Registation /> */}
-            <Card />
-            <Footer />
-          </div>
-        </div>
-        {/* <Trial/> */}
-        {/* <Form /> */}
-      </div>
+        </div>)}
     </>
   );
 };

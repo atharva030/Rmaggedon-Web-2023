@@ -1,14 +1,16 @@
 import React from "react";
-import { rmageddon_logo_anim } from "../assets";
+import { mario } from "../assets"
+import Lottie from "lottie-react";
 const Loader = () => {
   return (
-    <div>
-      <div class="center-loader">
-        <div class="ring"></div>
-        <JSON width={120} src={rmageddon_logo_anim} alt="" />
+    <div >
+      <div className=" absolute z-[0] w-full h-full top-0 bg-black" />
+      <div className="absolute z-[0] w-[80%] h-[40%] rounded-full b__gradient bottom-40" />
+      {/* <div className="absolute z-[0] w-[50%] h-[50%] right-20 bottom-20 b__gradient" /> */}
+      <div>
+        <Lottie animationData={mario} />
       </div>
     </div>
   );
 };
-
 export default Loader;

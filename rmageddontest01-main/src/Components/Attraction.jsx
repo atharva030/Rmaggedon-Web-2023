@@ -2,7 +2,7 @@ import { attraction } from "../Constant";
 import styles from "../style";
 
 const Attraction = () => (
-  <section className={`${styles.flexCenter} flex-row flex-wrap sm:mb-20 mb-6`}>
+  <section className={`${styles.flexCenter} flex-row flex-wrap sm:mb-20 mb-6 h-[100vh]`}>
     {attraction.map((attraction) => (
       <div
         key={attraction.id}
