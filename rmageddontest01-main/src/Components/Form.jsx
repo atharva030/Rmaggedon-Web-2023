@@ -10,7 +10,7 @@ const Form = () => {
   const [formData, setFormData] = useState({
     checkboxValues: [],
     teamName: "",
-    totalTeamMember: "",
+    total:"" ,
     workshop: "",
     leaderName: "",
     leaderPhone: "",
@@ -46,28 +46,28 @@ const Form = () => {
       );
     }
     console.log(formData);
-    const response = await fetch(`https://rmaggedon.vercel.app/createuser`, {
-      method: "POST", // *GET, POST, PUT, DELETE, etc.
-      headers: {
-        "Content-Type": "application/json",
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: JSON.stringify(formData), // body data type must match "Content-Type" header
-    });
-    const json = await response.json();
-    console.log(formData);
-    if (json.success) {
-      e.preventDefault();
-      alert(
-        "You have been successfully Registered for the events, Please check your emails for further updates"
-      );
-    } else {
-      alert("Credentials that you entered must be unique");
-    }
+    // const response = await fetch(`https://rmaggedon.vercel.app/createuser`, {
+    //   method: "POST", // *GET, POST, PUT, DELETE, etc.
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     // 'Content-Type': 'application/x-www-form-urlencoded',
+    //   },
+    //   body: JSON.stringify(formData), // body data type must match "Content-Type" header
+    // });
+    // const json = await response.json();
+    // console.log(formData);
+    // if (json.success) {
+    //   e.preventDefault();
+    //   alert(
+    //     "You have been successfully Registered for the events, Please check your emails for further updates"
+    //   );
+    // } else {
+    //   alert("Credentials that you entered must be unique");
+    // }
   };
   const onchange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value }); //this is mainly use to reflect the change in words on frontend
-    console.log(formData.totalTeamMember);
+    console.log(formData.total);
   };
   // const handleChange = (e) => {
   //   setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -97,10 +97,10 @@ const Form = () => {
           content="Registration, Rmaggedon 2023, form, game registration"
         />
       </Helmet>
-      <div className="form" onSubmit={handleSubmit}>
+      <div className="form" >
         {/* <video className="Vid" src={videobg1} autoplay loop muted /> */}
         <h1 className="form_title">Registration Form</h1>
-        <form action="" className="form_main">
+        <form action="" className="form_main" onSubmit={handleSubmit}>
           <fieldset>
             <legend className="first_legend">Team Details</legend>
             <fieldset className="input_field">
@@ -121,7 +121,21 @@ const Form = () => {
 
             <fieldset className="input_field">
               <legend>Choose Team Size</legend>
-              <select
+              <input
+                // type="text"
+                className="req_field"
+                value={formData.total}
+                // autoComplete="off"
+                name="total"
+                id="total"
+                type="number"
+                placeholder="Enter your Leader Name"
+                onChange={onchange}
+                min="3" 
+                max="4"
+                required
+              />
+              {/* <select
                 id="dropdown"
                 type="text"
                 autoComplete="off"
@@ -131,10 +145,12 @@ const Form = () => {
                 onChange={onchange}
                 required
               >
-                <option value="2">Choose Total Members</option>
+                <option value="">Choose Total Members</option>
                 <option value="3">3 Members</option>
                 <option value="4">4 Members</option>
-              </select>
+              </select> */}
+
+              
             </fieldset>
             <fieldset className="check">
               <div className="checks">
@@ -147,7 +163,6 @@ const Form = () => {
                     type="checkbox"
                     value="Retrofeista"
                     onChange={handleCheckboxChange}
-                    required
                   />
                   <span> Retrofeista</span>
                 </label>

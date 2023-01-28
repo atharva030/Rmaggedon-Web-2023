@@ -19,7 +19,7 @@ const FeatureCard = ({ title, content, index }) => (
   </div>
 );
 const Reward = () => (
-  <section id="treasure" name="treasure" className={layout.section}>
+  <section id="treasure" name="treasure" className={`${layout.section} h-screen`}>
     <div className={layout.sectionInfo}>
       <h2 className={styles.heading2}>
       Unlock Your Potential through Rmageddon After Participating
