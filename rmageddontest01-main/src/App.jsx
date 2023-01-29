@@ -48,7 +48,6 @@ const App = () => {
       {loading ? (
         <Loader />
       ) : (
-
           <div>
 
               <div className="bg-primary w-full overflow-hidden">

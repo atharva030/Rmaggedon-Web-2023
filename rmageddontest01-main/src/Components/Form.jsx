@@ -612,7 +612,7 @@ const Form = () => {
               <a href="https://www.rnxg.co.in/Terms"> Terms and Condittions.</a>
             </label>
           </fieldset>
-          <button type="submit" disabled={tcCheck} className={`py-4 cursor-not-allowed new-btn px-6 font-poppins font-medium text-[16px] text-primary bg-blue-gradient hover:bg-sky-700 rounded-[10px] outline-none ${styles}`}>
+          <button type="submit" disabled={tcCheck} className={`py-4  new-btn px-6 font-poppins font-medium text-[16px] text-primary bg-blue-gradient hover:bg-sky-700 rounded-[10px] outline-none ${styles}`}>
             Submit
           </button>
         </form>
