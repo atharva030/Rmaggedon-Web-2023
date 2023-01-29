@@ -15,7 +15,7 @@ import { Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
 import Loader from "./Components/Loader";
 import { useState } from "react";
-import Payment from "./Components/Payment/Payment";
+
 import Loader2 from "./Components/Loader2";
 const App = () => {
   const TRACKING_ID = "UA-255175997-1";

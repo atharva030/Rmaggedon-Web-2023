@@ -4,7 +4,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { Helmet } from "react-helmet";
 import { useState } from "react";
 import { useEffect } from "react";
-import Multiselect from 'multiselect-react-dropdown';
+import styles from "../style";
 
 
 // import videobg1 from "../Asset/videobg1.mp4"
@@ -649,7 +649,7 @@ const Form = () => {
             </label>
           </fieldset>
 
-          <button type="submit" disabled={captcha}>
+          <button type="submit" disabled={captcha} className={`py-4 cursor-not-allowed new-btn px-6 font-poppins font-medium text-[18px] text-primary bg-blue-gradient hover:bg-sky-700 rounded-[10px] outline-none ${styles}`}>
             Submit
           </button>
         </form>
