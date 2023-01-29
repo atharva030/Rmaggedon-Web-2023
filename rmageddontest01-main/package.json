@@ -9,7 +9,9 @@
     "preview": "vite preview --port 8080"
   },
   "dependencies": {
+    "@google-pay/button-react": "^3.0.5",
     "lottie-react": "^2.3.1",
+    "multiselect-react-dropdown": "^2.0.25",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-ga": "^3.3.1",

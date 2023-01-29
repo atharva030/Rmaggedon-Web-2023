@@ -3,9 +3,41 @@ import "./Form.css";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Helmet } from "react-helmet";
 import { useState } from "react";
+import { useEffect } from "react";
+import Multiselect from 'multiselect-react-dropdown';
+
+
 // import videobg1 from "../Asset/videobg1.mp4"
 const Form = () => {
-  const [tcCheck, setTcCheck] = useState(true);
+  ////////////////////////////////////////////////////////////////////////
+  //////////////////// Testing //////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  //////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////
+  const [tcCheck, setTcCheck] = useState(false);
+  const [captcha, setcaptcha] = useState(true)
+  const [globalTruth, setglobalTruth] = useState(Boolean)
   const [checkboxValues, setCheckboxValues] = useState([]);
   const [formData, setFormData] = useState({
     checkboxValues: [],
@@ -61,14 +93,26 @@ const Form = () => {
       alert(
         "You have been successfully Registered for the events, Please check your emails for further updates"
       );
+      // location.reload()
+
     } else {
       alert("Credentials that you entered must be unique");
+      // location.reload()
     }
   };
   const onchange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value }); //this is mainly use to reflect the change in words on frontend
     console.log(formData.totalTeamMember);
   };
+
+  useEffect(()=>{
+  if(tcCheck == true && captcha == false ){
+   setglobalTruth(true)
+   console.log(globalTruth)
+  } 
+
+    console.log(formData.totalTeamMember)
+  },[globalTruth,tcCheck,captcha,formData])
   // const handleChange = (e) => {
   //   setFormData({ ...formData, [e.target.name]: e.target.value });
   //   console.log(formData.totalTeamMember)
@@ -85,8 +129,12 @@ const Form = () => {
   //     document.getElementById("fieldset2").style.display = "flex";
   //   }
   // };
-  function onChange(value) {
-    console.log("Captcha value:", value);
+
+
+
+
+  function onChange() {
+   setcaptcha(false)
   }
   return (
     <>
@@ -113,28 +161,10 @@ const Form = () => {
                 id="teamName"
                 autoComplete="off"
                 placeholder="Enter your Team Name"
-                onChange={onchange}
+                onChange={(e) => { setFormData({ ...formData, [e.target.name]: e.target.value }) }}
                 minLength={4}
                 required
               />
-            </fieldset>
-
-            <fieldset className="input_field">
-              <legend>Choose Team Size</legend>
-              <select
-                id="dropdown"
-                type="text"
-                autoComplete="off"
-                value={formData.totalTeamMember}
-                name="totalTeamMember"
-                placeholder="Enter your totalTeamMember"
-                onChange={onchange}
-                required
-              >
-                <option value="2">Choose Total Members</option>
-                <option value="3">3 Members</option>
-                <option value="4">4 Members</option>
-              </select>
             </fieldset>
             <fieldset className="check">
               <div className="checks">
@@ -145,7 +175,7 @@ const Form = () => {
                 <label>
                   <input
                     type="checkbox"
-                    value="Retrofeista"
+                    value={"Retrofeista" }
                     onChange={handleCheckboxChange}
                     required
                   />
@@ -154,7 +184,7 @@ const Form = () => {
                 <label>
                   <input
                     type="checkbox"
-                    value="Ninja Clash"
+                    value={"Ninja Clash"}
                     onChange={handleCheckboxChange}
                   />
                   <span>Ninja Clash</span>
@@ -162,13 +192,32 @@ const Form = () => {
                 <label>
                   <input
                     type="checkbox"
-                    value="Pac Runner"
+                    value={"Pac Runner"}
                     onChange={handleCheckboxChange}
                   />
                   <span> Pac Runner</span>
                 </label>
+
               </div>
             </fieldset>
+            <fieldset className="input_field">
+              <legend>Choose Team Size</legend>
+              <select
+                id="dropdown"
+                type="text"
+                autoComplete="off"
+                value={formData.totalTeamMember}
+                name="totalTeamMember"
+                placeholder="Enter your totalTeamMember"
+                onChange ={(e) => { setFormData({ ...formData, [e.target.name]: e.target.value }); }}
+                required
+              >
+                <option value="2">Choose Total Members</option>
+                <option value="3">3 Members</option>
+                <option value="4">4 Members</option>
+              </select>
+            </fieldset>
+
             <fieldset className="input_field">
               <legend>Have your attended the workshop?</legend>
               <select
@@ -176,7 +225,7 @@ const Form = () => {
                 type="text"
                 value={formData.workshop}
                 name="workshop"
-                onChange={onchange}
+                onChange={(e) => { setFormData({ ...formData, [e.target.name]: e.target.value }) }}
                 required
               >
                 <option value="">Have you attended?</option>
@@ -198,7 +247,7 @@ const Form = () => {
                 name="leaderName"
                 id="leaderName"
                 placeholder="Enter your Leader Name"
-                onChange={onchange}
+                onChange={(e) => { setFormData({ ...formData, [e.target.name]: e.target.value }) }}
                 required
               />
             </fieldset>
@@ -212,7 +261,7 @@ const Form = () => {
                 name="leaderPhone"
                 id="leaderPhone"
                 placeholder="Enter your Leader Phone"
-                onChange={onchange}
+                onChange={(e) => { setFormData({ ...formData, [e.target.name]: e.target.value }) }}
                 required
               />
             </fieldset>
@@ -226,7 +275,7 @@ const Form = () => {
                 name="leaderEmail"
                 id="leaderEmail"
                 placeholder="Enter your Leader Email"
-                onChange={onchange}
+                onChange={(e) => { setFormData({ ...formData, [e.target.name]: e.target.value }) }}
                 required
               />
             </fieldset>
@@ -240,7 +289,7 @@ const Form = () => {
                 className="req_field"
                 id="leaderReg"
                 placeholder="Enter your Leader Registration"
-                onChange={onchange}
+                onChange={(e) => { setFormData({ ...formData, [e.target.name]: e.target.value }) }}
                 required
               />
             </fieldset>
@@ -253,7 +302,7 @@ const Form = () => {
                 value={formData.leaderBranch}
                 name="leaderBranch"
                 placeholder="Enter your leaderBranch"
-                onChange={onchange}
+                onChange={(e) => { setFormData({ ...formData, [e.target.name]: e.target.value }) }}
                 required
               >
                 <option value="none">Choose your branch</option>
@@ -286,7 +335,7 @@ const Form = () => {
                 value={formData.leaderYear}
                 name="leaderYear"
                 placeholder="Enter your leaderYear"
-                onChange={onchange}
+                onChange={(e) => { setFormData({ ...formData, [e.target.name]: e.target.value }) }}
                 required
               >
                 <option value="">Choose your year of study</option>
@@ -302,6 +351,7 @@ const Form = () => {
               <ReCAPTCHA
                 sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
                 required
+                onChange={() => { setcaptcha(false) }}
               />
               <div className="captha"></div>
             </div>
@@ -599,7 +649,7 @@ const Form = () => {
             </label>
           </fieldset>
 
-          <button type="submit" disabled={tcCheck}>
+          <button type="submit" disabled={captcha}>
             Submit
           </button>
         </form>
