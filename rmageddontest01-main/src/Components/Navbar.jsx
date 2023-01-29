@@ -7,8 +7,10 @@ const Navbar = () => {
   const [active, setActive] = useState("Home");
   const [toggle, setToggle] = useState(false);
   return (
-    <nav className="w-full flex py-6 justify-between items-center navbar">
-      {/* <a
+
+          <nav className="w-full flex py-6 justify-between items-center navbar">
+      
+            {/* <a
         className="w-[32px] h-[32px] text-white text-4xl text-bold cursor-pointer"
         href="https://www.rnxg.co.in/"
       >
@@ -55,56 +57,57 @@ const Navbar = () => {
           </ul>
         </div>
       </div> */}
-      <a
-        className="w-[32px] h-[32px] text-white text-4xl text-bold cursor-pointer"
-        href="https://www.rnxg.co.in/"
-      >
-        RNXG
-      </a>
-      <ul className="list-none md:flex hidden justify-end items-center flex-1 ">
-        <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mr-6`}>
-          <a href="/">Home</a>
-        </li>
-        <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mr-6 `}>
-          <a href="#treasure">Treasure</a>
-        </li>
-        <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mr-6 `}>
-          <a href="#battles">Battles</a>
-        </li>
-        <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mr-6`}>
-          <a href="#connect">Connect</a>
-        </li>
-        {/* <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mr-6`}>
+            <a
+              className="w-[32px] h-[32px] text-white text-4xl text-bold cursor-pointer"
+              href="https://www.rnxg.co.in/"
+            >
+              RNXG
+            </a>
+
+            <ul className="list-none md:flex hidden justify-end items-center flex-1 ">
+              <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mr-6`}>
+                <a href="/">Home</a>
+              </li>
+              <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mr-6 `}>
+                <a href="#treasure">Treasure</a>
+              </li>
+              <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mr-6 `}>
+                <a href="#battles">Battles</a>
+              </li>
+              <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mr-6`}>
+                <a href="#connect">Connect</a>
+              </li>
+              {/* <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mr-6`}>
           <a href="#register">Register</a>
         </li> */}
-      </ul>
-      <div className="md:hidden flex flex-1 justify-end items-center">
-        <img
-          src={toggle ? close : menu}
-          alt="menu"
-          className="w-[28px] h-[28px] object-contain"
-          onClick={() => setToggle(!toggle)}
-        />
-        <div
-          className={`${!toggle ? "hidden" : "flex"
-            } p-6 bg-black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl sidebar z-30 `}
-        >
-          <ul className="list-none flex justify-end items-start flex-1 flex-col">
-            <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mb-2`}>
-            <a href="/">Home</a>
-            </li>
-            <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mb-2 `}>
-            <a href="#treasure">Treasure</a>
-            </li>
-            <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mb-2 `}>
-               <a href="#battles">Battles</a>
-            </li>
-            <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mb-2`}>
-            <a href="#connect">Connect</a>
-            </li>
-          </ul>
-        </div>
-      </div>
+            </ul>
+            <div className="md:hidden flex flex-1 justify-end items-center">
+              <img
+                src={toggle ? close : menu}
+                alt="menu"
+                className="w-[28px] h-[28px] object-contain"
+                onClick={() => setToggle(!toggle)}
+              />
+              <div
+                className={`${!toggle ? "hidden" : "flex"
+                  } p-6 bg-black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl sidebar z-30 `}
+              >
+                <ul className="list-none flex justify-end items-start flex-1 flex-col">
+                  <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mb-2`}>
+                    <a href="/">Home</a>
+                  </li>
+                  <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mb-2 `}>
+                    <a href="#treasure">Treasure</a>
+                  </li>
+                  <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mb-2 `}>
+                    <a href="#battles">Battles</a>
+                  </li>
+                  <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mb-2`}>
+                    <a href="#connect">Connect</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
     </nav>
   );
 };

@@ -3,6 +3,7 @@ import "./Form.css";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Helmet } from "react-helmet";
 import { useState } from "react";
+import styles from "../style";
 // import videobg1 from "../Asset/videobg1.mp4"
 const Form = () => {
   const [tcCheck, setTcCheck] = useState(true);
@@ -593,9 +594,7 @@ const Form = () => {
               <option value="third">Third Year</option>
               <option value="final">Final Year</option>
             </select>
-              
           </fieldset>
-          
         </fieldset> */}
           {/* <input type="file" placeholder="Choose File" /> */}
           <fieldset className="T_C">
@@ -613,8 +612,7 @@ const Form = () => {
               <a href="https://www.rnxg.co.in/Terms"> Terms and Condittions.</a>
             </label>
           </fieldset>
-
-          <button type="submit" disabled={tcCheck}>
+          <button type="submit" disabled={tcCheck} className={`py-4 cursor-not-allowed new-btn px-6 font-poppins font-medium text-[16px] text-primary bg-blue-gradient hover:bg-sky-700 rounded-[10px] outline-none ${styles}`}>
             Submit
           </button>
         </form>

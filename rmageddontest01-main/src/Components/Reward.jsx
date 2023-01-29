@@ -4,7 +4,7 @@ import Button from "./Button";
 
 const FeatureCard = ({ title, content, index }) => (
   <div
-    className={`flex flex-row p-6 rounded-[20px] ${
+    className={`flex flex-row p-6 rounded-[20px]  ${
       index !== features.length - 1 ? "mb-6" : "mb-0"
     } feature-card`}
   >
@@ -19,8 +19,8 @@ const FeatureCard = ({ title, content, index }) => (
   </div>
 );
 const Reward = () => (
-  <section id="treasure" name="treasure" className={`${layout.section} h-screen`}>
-    <div className={layout.sectionInfo}>
+  <section id="treasure" name="treasure" className={`${layout.section} h-[100vh]`}>
+    <div className={layout.sectionInfo} >
       <h2 className={styles.heading2}>
       Unlock Your Potential through Rmageddon After Participating
       </h2>
@@ -29,10 +29,8 @@ const Reward = () => (
        <li className="list-disc">Hands-on experience with designing, building, and programming robots</li>
        <li className="list-disc">Exciting Prizes and Certificates after completion</li>
       </ul>
-
       <Button styles={`mt-10`} />
     </div>
-
     <div className={`${layout.sectionImg} flex-col`}>
       {features.map((feature, index) => (
         <FeatureCard key={feature.id} {...feature} index={index} />

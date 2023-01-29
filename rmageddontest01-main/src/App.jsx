@@ -1,4 +1,4 @@
-import styles from "./style";
+
 import ReactGA from "react-ga";
 import NavBar from "./Components/Navbar";
 import Hero from "./Components/Hero";
@@ -10,10 +10,12 @@ import Footer from "./Components/Footer";
 // import rmageddon from "./assets/Rmageddon_logo.png";
 import { Helmet } from "react-helmet";
 import Form from "./Components/Form";
-// import { Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
 import Loader from "./Components/Loader";
 import { useState } from "react";
+import { Route, Link, Routes, BrowserRouter } from 'react-router-dom';
+import Payment from "./Components/Payment";
+import styles from "./style";
 const App = () => {
   const TRACKING_ID = "UA-255175997-1";
   ReactGA.initialize(TRACKING_ID);
@@ -46,35 +48,46 @@ const App = () => {
       {loading ? (
         <Loader />
       ) : (
-        <div>
-          <div className="bg-primary w-full overflow-hidden">
-            <div className={`${styles.paddingX} ${styles.flexCenter}`}>
-              <div className={`${styles.boxWidth}`}>
-                <NavBar />
+
+          <div>
+
+              <div className="bg-primary w-full overflow-hidden">
+                <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+                  <div className={`${styles.boxWidth}`}>
+                    <NavBar />
+                  </div>
+                </div>
+                <div className={`bg-primary ${styles.flexStart}`}>
+                  <div className={`${styles.boxWidth}`}>
+                    <Hero />
+                    {/* {state ? <Loader state={state}/> :<Hero/>} */}
+                  </div>
+                </div>
+                <div
+                  className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}
+                >
+                  <div className={`${styles.boxWidth}`}>
+                    <Attraction />
+                    <Reward />
+                    {/* <Registation /> */}
+                    <Card />
+                    <Form />
+                    <Footer />
+          
+                  </div>
+                </div>
+                {/* <Trial/> */}
               </div>
-            </div>
-            <div className={`bg-primary ${styles.flexStart}`}>
-              <div className={`${styles.boxWidth}`}>
-                <Hero />
-                {/* {state ? <Loader state={state}/> :<Hero/>} */}
-              </div>
-            </div>
-            <div
-              className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}
-            >
-              <div className={`${styles.boxWidth}`}>
-                <Attraction />
-                <Reward />
-                {/* <Registation /> */}
-                <Card />
-                     <Form />
-                <Footer />
-              </div>
-            </div>
-            {/* <Trial/> */}
-       
+            {/* <Routes >
+              
+              <Route path="#payment" element={<Payment/>}/>
+            </Routes> */}
+
+
+
+            {/* </Routes> */}
           </div>
-        </div>
+
       )}
     </>
   );

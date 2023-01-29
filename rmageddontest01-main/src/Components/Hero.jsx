@@ -4,14 +4,15 @@ import { rmageddon } from "../assets";
 const Hero = () => {
   return (
     <section
+    path="/"
       id="home"
       name="home"
       className={`flex md:flex-row flex-col ${styles.paddingY}`}
     >
       <div
-        className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}
+        className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6 py-[-1]`}
       >
-        <div className="flex flex-row justify-between items-center w-full">
+        <div className="flex flex-row justify-between items-center w-full mb-0">
           <h1 className="flex-1 font-poppins font-semibold ss:text-[76px] text-[52px] text-white ss:leading-[100.8px] leading-[75px]">
             <span className="text-gradient">RMAGEDDON 2023 </span> <br></br>
           </h1>
@@ -40,6 +41,7 @@ const Hero = () => {
         <div className="absolute z-[1] w-[80%] h-[40%] rounded-full white__gradient bottom-40" />
         <div className="absolute z-[0] w-[50%] h-[50%] right-20 bottom-20 b__gradient" />
       </div>
+      
     </section>
   );
 };
