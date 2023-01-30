@@ -4,7 +4,7 @@ import Button from "./Button";
 
 const FeatureCard = ({ title, content, index }) => (
   <div
-    className={`flex flex-row p-6 rounded-[20px] ${
+    className={`flex flex-row p-6 rounded-[20px] w-23 ${
       index !== features.length - 1 ? "mb-6" : "mb-0"
     } feature-card`}
   >
@@ -22,15 +22,29 @@ const Reward = () => (
   <section id="treasure" name="treasure" className={layout.section}>
     <div className={layout.sectionInfo}>
       <h2 className={styles.heading2}>
-      Unlock Your Potential through Rmageddon After Participating
+        Unlock Your Potential through Rmageddon After Participating
       </h2>
       <ul className={`${styles.paragraph} max-w-[470px] mt-5 ml-5`}>
-       <li className="list-disc">Development of teamwork and project management skills</li>
-       <li className="list-disc">Hands-on experience with designing, building, and programming robots</li>
-       <li className="list-disc">Exciting Prizes and Certificates after completion</li>
+        <li className="list-disc">
+          Development of teamwork and project management skills
+        </li>
+        <li className="list-disc">
+          Hands-on experience with designing, building, and programming robots
+        </li>
+        <li className="list-disc">
+          Exciting Prizes and Certificates after completion
+        </li>
       </ul>
 
-      <Button styles={`mt-10`} />
+      {/* <Button styles={`mt-10`} /> */}
+      <a href="#form">
+      <button
+        type="button"
+        className={`py-4 cursor-pointer new-btn px-6 mt-10 font-poppins font-medium text-[18px] text-primary bg-blue-gradient hover:bg-sky-700 rounded-[10px] outline-none `}
+      >
+        Register Now
+      </button>
+      </a>
     </div>
 
     <div className={`${layout.sectionImg} flex-col`}>

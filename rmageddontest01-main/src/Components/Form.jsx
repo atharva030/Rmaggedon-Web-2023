@@ -10,39 +10,15 @@ import QR from "../assets/QR.png"
 
 // import videobg1 from "../Asset/videobg1.mp4"
 const Form = () => {
-  ////////////////////////////////////////////////////////////////////////
-  //////////////////// Testing //////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  //////////////////////////////////////////////////////////////////////////////////
-  /////////////////////////////////////////////////////////////////////////////////
   const [loading, setloading] = useState(Boolean)
   const [tcCheck, setTcCheck] = useState(false);
   const [captcha, setcaptcha] = useState(true)
   const [globalTruth, setglobalTruth] = useState(Boolean)
-  const [checkboxValues, setCheckboxValues] = useState([]);
   const [formData, setFormData] = useState({
-    checkboxValues: [],
+    // checkboxValues: [],
+    gameOne:"",
+    gameTwo:"",
+    gameThree:"",
     teamName: "",
     totalTeamMember: "",
     workshop: "",
@@ -53,22 +29,13 @@ const Form = () => {
     leaderBranch: "",
     leaderYear: "",
   });
+ 
   const termCheck = () => {
     setTcCheck(!tcCheck);
   };
-  const handleCheckboxChange = (e) => {
-    // Destructuring
-    const { value, checked } = e.target;
-    // const { languages } = userinfo;
-
-    if (checked) {
-      setFormData({ checkboxValues: [...formData.checkboxValues, value] });
-    } else {
-      setFormData({
-        checkboxValues: formData.checkboxValues.filter((e) => e !== value),
-      });
-    }
-  };
+  // const handleNewChange = event => {
+  //   setSelectedOptions(Array.from(event.target.selectedOptions, option => option.value));
+  // };
 
   const handleSubmit = async (e) => {
     setloading(true)
@@ -106,10 +73,10 @@ const Form = () => {
       setloading(false);
     }
   };
-  const onchange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value }); //this is mainly use to reflect the change in words on frontend
-    console.log(formData.totalTeamMember);
-  };
+  // const onchange = (e) => {
+  //   setFormData({ ...formData, [e.target.name]: e.target.value }); //this is mainly use to reflect the change in words on frontend
+  //   console.log(formData.totalTeamMember);
+  // };
 
   useEffect(() => {
     if (tcCheck == true && captcha == false) {
@@ -151,7 +118,7 @@ const Form = () => {
           content="Registration, Rmaggedon 2023, form, game registration"
         />
       </Helmet>
-      <div className="form" onSubmit={handleSubmit}>
+      <div className="form" onSubmit={handleSubmit} id="form">
         {/* <video className="Vid" src={videobg1} autoplay loop muted /> */}
         <h1 className="form_title">Registration Form</h1>
         <form action="" className="form_main">
@@ -172,40 +139,55 @@ const Form = () => {
                 required
               />
             </fieldset>
-            <fieldset className="check">
-              <div className="checks">
-                <legend>
-                  Game/Games to <br /> be register
-                </legend>
-
-                <label>
-                  <input
-                    type="checkbox"
-                    value={"Retrofeista"}
-                    onChange={handleCheckboxChange}
-                    required
-                  />
-                  <span> Retrofeista</span>
-                </label>
-                <label>
-                  <input
-                    type="checkbox"
-                    value={"Ninja Clash"}
-                    onChange={handleCheckboxChange}
-                  />
-                  <span>Ninja Clash</span>
-                </label>
-                <label>
-                  <input
-                    type="checkbox"
-                    value={"Pac Runner"}
-                    onChange={handleCheckboxChange}
-                  />
-                  <span> Pac Runner</span>
-                </label>
-
-              </div>
+             <fieldset className="input_field">
+              <legend>Choose Battle (First Preference) </legend>
+              <select
+                id="dropdown"
+                type="text"
+                value={formData.gameOne}
+                name="gameOne"
+                onChange={(e) => { setFormData({ ...formData, [e.target.name]: e.target.value }) }}
+                required
+              >
+                <option value="None">None</option>
+                <option value="Pac Runner">Pac Runner</option>
+                <option value="Retromania">Retromania</option>
+                <option value="Ninja Clash">NINJA CLASH</option>
+              </select>
             </fieldset>
+             <fieldset className="input_field">
+              <legend>Choose Battle (Second Preference) </legend>
+              <select
+                id="dropdown"
+                type="text"
+                value={formData.gameTwo}
+                name="gameTwo"
+                onChange={(e) => { setFormData({ ...formData, [e.target.name]: e.target.value }) }}
+                required
+              >
+                <option value="None">None</option>
+                <option value="Pac Runner">Pac Runner</option>
+                <option value="Retromania">Retromania</option>
+                <option value="Ninja Clash">NINJA CLASH</option>
+              </select>
+            </fieldset>
+             <fieldset className="input_field">
+              <legend>Choose Battle (Third Preference) </legend>
+              <select
+                id="dropdown"
+                type="text"
+                value={formData.gameThree}
+                name="gameThree"
+                onChange={(e) => { setFormData({ ...formData, [e.target.name]: e.target.value }) }}
+                required
+              >
+                <option value="None">None</option>
+                <option value="Pac Runner">Pac Runner</option>
+                <option value="Retromania">Retromania</option>
+                <option value="Ninja Clash">NINJA CLASH</option>
+              </select>
+            </fieldset>
+             
             <fieldset className="input_field">
               <legend>Choose Team Size</legend>
               <select
