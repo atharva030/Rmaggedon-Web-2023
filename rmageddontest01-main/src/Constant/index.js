@@ -88,7 +88,7 @@ export const attraction = [
   },
   {
     id: "Cash ",
-    title: "Cash Price",
+    title: "Cash Prize",
     value: "25K+",
   },
 ];

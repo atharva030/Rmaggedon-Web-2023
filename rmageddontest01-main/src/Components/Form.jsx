@@ -508,8 +508,9 @@ const Form = () => {
               </div>
             </div>
           </fieldset>
-
-          <fieldset className="T_C">
+  
+         <div className="submitt">
+                    <fieldset className="T_C">
             <legend className="first_legend">Do you agree</legend>
             <label>
               <input
@@ -520,14 +521,16 @@ const Form = () => {
                 onChange={termCheck}
                 id="checkbox"
               />
-              By checking this, you conform and agree to the all
+              By checking this, you confirm and agree to the all
               <a href="https://www.rnxg.co.in/Privicy"> Privacy</a> and
-              <a href="https://www.rnxg.co.in/Terms"> Terms and Condittions.</a>
+              <a href="https://www.rnxg.co.in/Terms"> Terms and Conditions.</a>
             </label>
           </fieldset>
           <button type="submit" disabled={captcha} onClick={() => { setFormData({ ...formData, paidAmt: amount })}} className={`w-[100px] h-[60px]  new-btn font-poppins font-medium text-[18px] text-primary bg-blue-gradient hover:bg-sky-700 rounded-[10px] outline-none ${styles} items-center justify-items-center `}>
             {loading ? <Loader2 /> : "Submit"}
           </button>
+         </div>
+
         </form>
       </div>
 

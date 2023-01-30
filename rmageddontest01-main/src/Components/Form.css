@@ -362,6 +362,10 @@ input:valid {
   border: 1px solid grey;
   opacity: .3;
 }
+    #bodayy {
+   align-self: start;
+  
+    }
 
 .amount_to_pay {
   margin: 20px 0 0 0;
@@ -381,6 +385,19 @@ input:valid {
   font-weight: 700;
 }
 
+.submitt {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.submitt button{
+align-self: flex-end;
+margin-top: 10px;
+display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 @media screen and (max-width: 1100px) {
   .input_field {
@@ -414,6 +431,29 @@ input:valid {
     gap: 5vw;
   }
 
+  .form_title {
+    font-size: 29px !important;
+  }
+
+  .amount_to_pay {
+    flex-direction: column;
+  }
+
+  .amount_to_pay h1 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+
+.submitt {
+  
+  width: 100%;
+}
+
+  .T_C {
+    width: 100%;
+  }
+
   .amount_to_pay {
     flex-direction: column;
   }
@@ -426,6 +466,18 @@ input:valid {
 
   #bodayy {
     flex-direction: column;
+    align-items: center;
+    
+  }
+
+  .qrr {
+    /* width: 78% !important; */
+    /* margin-left: 29px !important; */
+    height: 56vh !important;
+  }
+
+  .response-submit_btn {
+    margin-left: 192px;
   }
 
   .css-b62m3t-container {
@@ -469,7 +521,9 @@ input:valid {
   h1 {
     font-size: 40px;
   }
-
+    .qrr {
+   margin-top: 25px;
+    }
   .amount_to_pay {
     flex-direction: column;
   }
@@ -590,7 +644,7 @@ input:valid {
 }
 
 .qrr {
-  width: 50%;
+  /* width: 50%; */
   display: flex;
   align-items: center;
   height: 55vh;
