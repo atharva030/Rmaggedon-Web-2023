@@ -329,7 +329,7 @@ const Form = () => {
             </fieldset>
 
             <fieldset className="input_field">
-              <legend>Have your attended the workshop?</legend>
+              <legend>Attended the workshop?</legend>
               <select
                 id="dropdown"
                 type="text"
