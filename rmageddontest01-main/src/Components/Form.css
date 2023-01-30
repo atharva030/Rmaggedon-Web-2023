@@ -466,8 +466,11 @@ input:valid {
 }
 
 .css-b62m3t-container {
-  width: 36vw !important;
-
+  /* width: 36vw !important;
+  height: 70px !important;
+  border-radius: 10px !important;
+  border: 0.2px solid gray !important;
+  padding: 10px !important; */
 }
 
 .css-13cymwt-control {

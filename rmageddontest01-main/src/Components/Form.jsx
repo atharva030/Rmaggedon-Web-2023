@@ -276,8 +276,7 @@ const Form = () => {
 
               </div>
             </fieldset> */}
-
-            <Select
+<div className="input_field"> <Select 
               required
               defaultValue={[]}
               isMulti
@@ -292,7 +291,8 @@ const Form = () => {
               components={{
                 Option: InputOption
               }}
-            />
+            /></div>
+           
             <fieldset className="input_field">
               <legend>Choose Team Size</legend>
               <select
