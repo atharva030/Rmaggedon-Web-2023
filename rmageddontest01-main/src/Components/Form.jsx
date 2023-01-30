@@ -7,6 +7,71 @@ import { useEffect } from "react";
 import styles from "../style";
 import Loader2 from "./Loader2";
 import QR from "../assets/QR.png"
+import Select, { components } from "react-select";
+
+///////////////////////////////////////////////////////////////////
+
+const InputOption = ({
+  getStyles,
+  Icon,
+  isDisabled,
+  isFocused,
+  isSelected,
+  children,
+  innerProps,
+  ...rest
+}) => {
+  const [isActive, setIsActive] = useState(false);
+  const onMouseDown = () => setIsActive(true);
+  const onMouseUp = () => setIsActive(false);
+  const onMouseLeave = () => setIsActive(false);
+
+  // styles
+  let bg = "transparent";
+  if (isFocused) bg = "#eee";
+  if (isActive) bg = "#B2D4FF";
+
+  const style = {
+    alignItems: "center",
+    backgroundColor: bg,
+    color: "inherit",
+    display: "flex ",
+    width:"100%"
+  };
+
+  // prop assignment
+  const props = {
+    ...innerProps,
+    onMouseDown,
+    onMouseUp,
+    onMouseLeave,
+    style
+  };
+
+  return (
+    <components.Option
+      {...rest}
+      isDisabled={isDisabled}
+      isFocused={isFocused}
+      isSelected={isSelected}
+      getStyles={getStyles}
+      innerProps={props}
+    >
+      <input type="checkbox" checked={isSelected} />
+      {children}
+    </components.Option>
+  );
+};
+
+const allOptions = [
+  { value: "RETROMANIA", label: "RETROMANIA" },
+  { value: "PAC RUNNER", label: "PAC RUNNER" },
+  { value: "NINJA CLASH", label: "NINJA CLASH" },
+ 
+];
+
+
+////////////////////////////////////////////////////////////////
 
 // import videobg1 from "../Asset/videobg1.mp4"
 const Form = () => {
@@ -33,9 +98,10 @@ const Form = () => {
 
 
 
-
   //////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////
+  const [selectedOptions, setSelectedOptions] = useState([]);
+
   const [loading, setloading] = useState(Boolean)
   const [tcCheck, setTcCheck] = useState(false);
   const [captcha, setcaptcha] = useState(true)
@@ -52,6 +118,7 @@ const Form = () => {
     leaderReg: "",
     leaderBranch: "",
     leaderYear: "",
+    txh_id:""
   });
   const termCheck = () => {
     setTcCheck(!tcCheck);
@@ -115,10 +182,13 @@ const Form = () => {
     if (tcCheck == true && captcha == false) {
       setglobalTruth(true)
       console.log(globalTruth)
+      console.log(selectedOptions)
+      console.log(formData.checkboxValues)
+      setFormData({...formData, checkboxValues:selectedOptions})
     }
 
     console.log(formData.totalTeamMember)
-  }, [globalTruth, tcCheck, captcha, formData])
+  }, [globalTruth, tcCheck, captcha, ])
   // const handleChange = (e) => {
   //   setFormData({ ...formData, [e.target.name]: e.target.value });
   //   console.log(formData.totalTeamMember)
@@ -172,7 +242,7 @@ const Form = () => {
                 required
               />
             </fieldset>
-            <fieldset className="check">
+            {/* <fieldset className="check">
               <div className="checks">
                 <legend>
                   Game/Games to <br /> be register
@@ -205,7 +275,24 @@ const Form = () => {
                 </label>
 
               </div>
-            </fieldset>
+            </fieldset> */}
+
+            <Select
+             required
+              defaultValue={[]}
+              isMulti
+              closeMenuOnSelect={false}
+              hideSelectedOptions={false}
+              onChange={(options) => {
+                if (Array.isArray(options)) {
+                  setSelectedOptions(options.map((opt) => opt.value));
+                }
+              }}
+              options={allOptions}
+              components={{
+                Option: InputOption
+              }}
+            />
             <fieldset className="input_field">
               <legend>Choose Team Size</legend>
               <select
@@ -355,20 +442,22 @@ const Form = () => {
             </fieldset>
             {/* <fieldset className=" ">
               <fieldset className="input_field flex flex-col "> */}
-              <div className="boday w-[100%] justify-between  items-center  ">      
+              <div id="bodayy" className="boday w-[98%] justify-between  items-start flex  ">      
                <div className="parent field_flex">
-                   <legend id="transastion_id">Transation ID</legend>
-                <input
-                  type="text"
-                  // value={"text"}
-                  autoComplete="off"
-                  className="req_field  "
-                  name="taransatin id"
-                  id="leaderEmail"
-                  placeholder="Enter your transation id"
-                  // onChange={(e) => { setFormData({ ...formData, [e.target.name]: e.target.value }) }}
-                  required
-                />
+                <fieldset className="input_field">
+                  <legend id="Rno-legend">UPI Ref No.</legend>
+                  <input
+                    type="text"
+                    value={formData.txh_id}
+                    name="txh_id"
+                    autoComplete="off"
+                    className="req_field"
+                    id="leaderReg"
+                    placeholder="Enter your UPI Refrence No"
+                    onChange={(e) => { setFormData({ ...formData, [e.target.name]: e.target.value }) }}
+                    required
+                  />
+                </fieldset>
                 <div className="capcha-flex">
                   <ReCAPTCHA
                     sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
@@ -377,9 +466,9 @@ const Form = () => {
                   />
                 </div>
                 </div>
-                <span >
+                
                   <div
-                    className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative object:contain justify-end w-[100%]`}
+                    className="qrr"
                   >
                     <img
                       src={QR}
@@ -387,7 +476,6 @@ const Form = () => {
                       className="object-contain scale-[1.2] w-[350] h-[350px]  relative z-[5] head-image"
                     />
                   </div>
-                  </span> 
                   </div>
           </fieldset>
           {/* <fieldset>
