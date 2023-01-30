@@ -490,7 +490,7 @@ const Form = () => {
               <div className="parent field_flex">
                 <div className="capcha-flex">
                   <ReCAPTCHA
-                    sitekey="6Ld4TC0kAAAAADYZeAL4KnQi6W6RQyHt1GLWXSIP"
+                    sitekey="6Ld_fh8hAAAAAF2ExAvS3g5VECzCRYLQBZeTk2Lj"
                     required
                     onChange={() => { setcaptcha(false) }}
                   />
