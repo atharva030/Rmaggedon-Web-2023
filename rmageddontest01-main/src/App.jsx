@@ -67,11 +67,13 @@ setLoading(false)
               <Reward />
               {/* <Registation /> */}
               <Card />
+              {/* <Form /> */}
+
               <Footer />
             </div>
           </div>
           {/* <Trial/> */}
-          <Form />
+          
 
         </div>
 

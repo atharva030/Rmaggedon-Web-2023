@@ -106,9 +106,11 @@ const Form = () => {
   const [tcCheck, setTcCheck] = useState(false);
   const [captcha, setcaptcha] = useState(true)
   const [globalTruth, setglobalTruth] = useState(Boolean)
-  const [checkboxValues, setCheckboxValues] = useState([]);
   const [formData, setFormData] = useState({
-    checkboxValues: [],
+    // checkboxValues: [],
+    gameOne:"",
+    gameTwo:"",
+    gameThree:"",
     teamName: "",
     totalTeamMember: "",
     workshop: "",
@@ -120,6 +122,7 @@ const Form = () => {
     leaderYear: "",
     txh_id: ""
   });
+ 
   const termCheck = () => {
     setTcCheck(!tcCheck);
   };
@@ -179,10 +182,10 @@ const Form = () => {
       setloading(false);
     }
   };
-  const onchange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value }); //this is mainly use to reflect the change in words on frontend
-    console.log(formData.totalTeamMember);
-  };
+  // const onchange = (e) => {
+  //   setFormData({ ...formData, [e.target.name]: e.target.value }); //this is mainly use to reflect the change in words on frontend
+  //   console.log(formData.totalTeamMember);
+  // };
 
   
 
@@ -232,7 +235,7 @@ const Form = () => {
           content="Registration, Rmaggedon 2023, form, game registration"
         />
       </Helmet>
-      <div className="form" onSubmit={handleSubmit}>
+      <div className="form" onSubmit={handleSubmit} id="form">
         {/* <video className="Vid" src={videobg1} autoplay loop muted /> */}
         <h1 className="form_title">Registration Form</h1>
         <form action="" className="form_main">
@@ -286,7 +289,7 @@ const Form = () => {
                 </label>
 
               </div>
-            </fieldset> */}
+            </fieldset>  */}
 
             <Select
               required

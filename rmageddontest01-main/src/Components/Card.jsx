@@ -3,6 +3,9 @@ import { Helmet } from "react-helmet";
 import ninja_turtle from "../assets/ninja_turtle.png";
 import pac_man from "../assets/pac_man.png";
 import retromania from "../assets/retromania.png";
+import Retromania_Rules from "../assets/Retromania Rules.pdf";
+import PacRunner_Rules from "../assets/PacRunner Rules.pdf";
+import NinjaClash_Rules from "../assets/Ninja Clash Rules.pdf";
 import styles from "../style";
 import Button from "./Button";
 const Card = () => {
@@ -16,9 +19,9 @@ const Card = () => {
         />
       </Helmet>
       <section id="battles" name="battles">
-        <div className="grid lg:grid-cols-3 gap-[7rem] text-green-400 py-10 h-full w-full ">
+        <div className="grid lg:grid-cols-3 text-green-400 py-10 h-full w-full ">
           <script src="https://cdn.tailwindcss.com" />
-          <div className="flex h-screen items-center ml-[-2rem] ">
+          <div className="flex h-screen items-center ml-[-1rem] ">
             <div className="w-10/12 group relative mx-auto w-[350px] overflow-hidden rounded-[16px] bg-gray-300 p-[1px] transition-all duration-300 ease-in-out hover:bg-gradient-to-r hover:from-[#00df9a]  hover:to-[#DFFA2D]">
               <div className="group-hover:animate-spin-slow invisible absolute -top-40 -bottom-40 left-10 right-10 bg-gradient-to-r from-transparent via-white/90 to-transparent group-hover:visible"></div>
               <div className="relative rounded-[15px] bg-black-gradient p-6">
@@ -32,7 +35,7 @@ const Card = () => {
                     PAC RUNNER
                   </p>
                   <p
-                    className={`${styles.paragraph} max-w-[450px] mt-5  text-center`}
+                    className={`font-poppins font-normal text-dimWhite text-[18px] leading-[27.8px] max-w-[450px] mt-5  text-center`}
                   >
                     The goal of the PAC RUNNER contest is for a robot to
                     accurately follow a black line on a white background,
@@ -42,7 +45,14 @@ const Card = () => {
                     will be the winner.
                   </p>
                   <div className=" justify-center flex ">
-                    <Button styles={`mt-7`} className="sm: card-btn" onclick />
+                    <a href={PacRunner_Rules} target="_blank">
+                    <button
+                      type="button"
+                      className={`py-4 cursor-pointer new-btn px-6 mt-5 font-poppins font-medium text-[18px] text-primary bg-blue-gradient hover:bg-sky-700 rounded-[10px] outline-none `}
+                    >
+                      View Rules
+                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -62,7 +72,7 @@ const Card = () => {
                     RETROMANIA
                   </p>
                   <p
-                    className={`${styles.paragraph} max-w-[470px] mt-5 text-center`}
+                    className={`font-poppins font-normal text-dimWhite text-[18px] leading-[27.8px] max-w-[470px] mt-5 text-center`}
                   >
                     Design a wired robot within the specified dimensions that
                     can operated manually and can travel through all turns of
@@ -71,7 +81,14 @@ const Card = () => {
                     the RETROMANIA.
                   </p>
                   <div className=" justify-center flex ">
-                    <Button styles={`mt-14`} className="sm:" />
+                    <a href={Retromania_Rules} target="_blank">
+                      <button
+                        type="button"
+                        className={`py-4 cursor-pointer new-btn px-6 mt-10 font-poppins font-medium text-[18px] text-primary bg-blue-gradient hover:bg-sky-700 rounded-[10px] outline-none `}
+                      >
+                        View Rules
+                      </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -91,7 +108,7 @@ const Card = () => {
                     NINJA CLASH
                   </p>
                   <p
-                    className={`${styles.paragraph} max-w-[470px] mt-5 text-center `}
+                    className={`font-poppins font-normal text-dimWhite text-[18px] leading-[27.8px] max-w-[470px] mt-5 text-center `}
                   >
                     NINJA CLASH is a sport in which 2 robots have to push each
                     other out of the arena. The operators have to operate robots
@@ -100,7 +117,15 @@ const Card = () => {
                     from leaving the arena.
                   </p>
                   <div className=" justify-center flex ">
-                    <Button styles={`mt-10`} className="sm:" />
+                    {/* <Button styles={`mt-10`} className="sm:" /> */}
+                    <a href={NinjaClash_Rules} target="_blank">
+                      <button
+                        type="button"
+                        className={`py-4 cursor-pointer new-btn px-6 mt-10 font-poppins font-medium text-[18px] text-primary bg-blue-gradient hover:bg-sky-700 rounded-[10px] outline-none `}
+                      >
+                        View Rules
+                      </button>
+                    </a>
                   </div>
                 </div>
               </div>
