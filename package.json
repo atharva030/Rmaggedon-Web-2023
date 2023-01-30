@@ -1,0 +1,36 @@
+{
+  "name": "rmageddon",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --port 8080"
+  },
+  "dependencies": {
+    "@google-pay/button-react": "^3.0.5",
+    "lottie-react": "^2.3.1",
+    "multiselect-react-dropdown": "^2.0.25",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-ga": "^3.3.1",
+    "react-google-recaptcha": "^2.1.0",
+    "react-helmet": "^6.1.0",
+    "react-icons": "^4.7.1",
+    "react-router-dom": "^6.8.0",
+    "react-scripts": "^5.0.1",
+    "react-select": "^5.7.0",
+    "react-social-icons": "^5.15.0",
+    "react-spinners": "^0.13.7"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "@vitejs/plugin-react": "^2.0.0",
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.1.6",
+    "vite": "^3.0.0"
+  }
+}
