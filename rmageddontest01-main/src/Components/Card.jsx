@@ -19,10 +19,10 @@ const Card = () => {
         />
       </Helmet>
       <section id="battles" name="battles">
-        <div className="grid lg:grid-cols-3 text-green-400 py-10 h-full w-full ">
+        <div className="grid lg:grid-cols-3 text-green-400 py-10 sm:h-full sm:w-full w-[70%] h-[70%] ">
           <script src="https://cdn.tailwindcss.com" />
-          <div className="flex h-screen items-center ml-[-1rem] ">
-            <div className="w-10/12 group relative mx-auto w-[350px] overflow-hidden rounded-[16px] bg-gray-300 p-[1px] transition-all duration-300 ease-in-out hover:bg-gradient-to-r hover:from-[#00df9a]  hover:to-[#DFFA2D]">
+          <div className="flex h-screen items-center ml-[-0.75rem] ">
+            <div className="w-10/12 group relative mx-auto w-[340px] overflow-hidden rounded-[16px] bg-gray-300 p-[1px] transition-all duration-300 ease-in-out hover:bg-gradient-to-r hover:from-[#00df9a]  hover:to-[#DFFA2D]">
               <div className="group-hover:animate-spin-slow invisible absolute -top-40 -bottom-40 left-10 right-10 bg-gradient-to-r from-transparent via-white/90 to-transparent group-hover:visible"></div>
               <div className="relative rounded-[15px] bg-black-gradient p-6">
                 <div className="space-y-1">
@@ -58,9 +58,8 @@ const Card = () => {
               </div>
             </div>
           </div>
-          <div className="flex h-screen items-center ml-[-1rem]">
-            <div className=" w-10/12 group relative mx-auto w-[350px] overflow-hidden rounded-[16px] bg-gray-300 p-[1px] transition-all duration-300 ease-in-out hover:bg-gradient-to-r hover:from-[#00df9a]  hover:to-[#DFFA2D]">
-              <div className="group-hover:animate-spin-slow invisible absolute -top-40 -bottom-40 left-10 right-10 bg-gradient-to-r from-transparent via-white/90 to-transparent group-hover:visible"></div>
+          <div className="flex h-screen items-center ml-[-0.75rem]">
+          <div className="w-10/12 group relative mx-auto w-[340px] overflow-hidden rounded-[16px] bg-gray-300 p-[1px] transition-all duration-300 ease-in-out hover:bg-gradient-to-r hover:from-[#00df9a]  hover:to-[#DFFA2D]">              <div className="group-hover:animate-spin-slow invisible absolute -top-40 -bottom-40 left-10 right-10 bg-gradient-to-r from-transparent via-white/90 to-transparent group-hover:visible"></div>
               <div className="relative rounded-[15px] bg-black-gradient p-6">
                 <div className="space-y-1">
                   <img
@@ -94,9 +93,8 @@ const Card = () => {
               </div>
             </div>
           </div>
-          <div className="flex h-screen items-center ml-[-1rem] ">
-            <div className="w-10/12 group relative mx-auto w-[350px] overflow-hidden rounded-[16px] bg-gray-300 p-[1px] transition-all duration-300 ease-in-out hover:bg-gradient-to-r hover:from-[#00df9a]  hover:to-[#DFFA2D]">
-              <div className="group-hover:animate-spin-slow invisible absolute -top-40 -bottom-40 left-10 right-10 bg-gradient-to-r from-transparent via-white/90 to-transparent group-hover:visible m-6"></div>
+          <div className="flex h-screen items-center ml-[-0.75rem] ">
+          <div className="w-10/12 group relative mx-auto w-[340px] overflow-hidden rounded-[16px] bg-gray-300 p-[1px] transition-all duration-300 ease-in-out hover:bg-gradient-to-r hover:from-[#00df9a]  hover:to-[#DFFA2D]">              {/* <div className="group-hover:animate-spin-slow invisible absolute -top-40 -bottom-40 left-10 right-10 bg-gradient-to-r from-transparent via-white/90 to-transparent group-hover:visible m-6"></div> */}
               <div className="relative rounded-[15px] bg-black-gradient p-6">
                 <div className="space-y-1">
                   <img
