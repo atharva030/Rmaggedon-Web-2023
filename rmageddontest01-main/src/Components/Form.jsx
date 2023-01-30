@@ -110,6 +110,7 @@ const Form = () => {
   const [formData, setFormData] = useState({
     checkboxValues: [],
     totalTeamMember: "",
+    paidAmt: amount,
     workshop: "",
     leaderName: "",
     leaderPhone: "",
@@ -119,13 +120,14 @@ const Form = () => {
     leaderYear: "",
     transId: ""
   });
- 
+
   const termCheck = () => {
     setTcCheck(!tcCheck);
   };
 
   const PriceCalculator = () => {
     setamount(formData.checkboxValues.length * 400)
+    
   }
 
 
@@ -184,11 +186,11 @@ const Form = () => {
   //   console.log(formData.totalTeamMember);
   // };
 
-  
+
 
   useEffect(() => {
     PriceCalculator()
-    
+
     if (tcCheck == true && captcha == false) {
       setglobalTruth(true)
       console.log(globalTruth)
@@ -241,6 +243,7 @@ const Form = () => {
             <fieldset className="input_field">
               <legend id="name-legend">Team Name</legend>
               <input
+                minLength={4}
                 className="req_field"
                 type="text"
                 value={formData.teamName}
@@ -249,7 +252,6 @@ const Form = () => {
                 autoComplete="off"
                 placeholder="Enter your Team Name"
                 onChange={(e) => { setFormData({ ...formData, [e.target.name]: e.target.value }) }}
-                minLength={4}
                 required
               />
             </fieldset>
@@ -294,12 +296,13 @@ const Form = () => {
               isMulti
               closeMenuOnSelect={false}
               hideSelectedOptions={false}
-              onChange={(options) => {setTcCheck(false)
+              onChange={(options) => {
+                setTcCheck(false)
                 if (Array.isArray(options)) {
                   document.getElementById("checkbox").checked = false;
 
                   setSelectedOptions(options.map((opt) => [opt.value, opt.amount]));
-                  
+
                 };
               }}
               options={allOptions}
@@ -361,7 +364,9 @@ const Form = () => {
             <fieldset className="input_field">
               <legend id="number-legend">Contact number</legend>
               <input
-                type="text"
+                type="tel"
+                maxLength={10}
+                minLength={10}
                 value={formData.leaderPhone}
                 autoComplete="off"
                 className="req_field"
@@ -375,7 +380,7 @@ const Form = () => {
             <fieldset className="input_field">
               <legend id="email-legend">Email</legend>
               <input
-                type="text"
+                type="email"
                 value={formData.leaderEmail}
                 autoComplete="off"
                 className="req_field"
@@ -391,6 +396,8 @@ const Form = () => {
               <input
                 type="text"
                 value={formData.leaderReg}
+                maxLength={10}
+                minLength={10}
                 name="leaderReg"
                 autoComplete="off"
                 className="req_field"
@@ -461,6 +468,8 @@ const Form = () => {
                 <fieldset className="input_field">
                   <legend id="Rno-legend">UPI Ref No.</legend>
                   <input
+                    minLength={12}
+                    maxLength={12}
                     type="text"
                     value={formData.transId}
                     name="transId"
@@ -516,7 +525,7 @@ const Form = () => {
               <a href="https://www.rnxg.co.in/Terms"> Terms and Condittions.</a>
             </label>
           </fieldset>
-          <button type="submit" disabled={captcha} className={`w-[100px] h-[60px]  new-btn font-poppins font-medium text-[18px] text-primary bg-blue-gradient hover:bg-sky-700 rounded-[10px] outline-none ${styles} items-center justify-items-center `}>
+          <button type="submit" disabled={captcha} onClick={() => { setFormData({ ...formData, paidAmt: amount })}} className={`w-[100px] h-[60px]  new-btn font-poppins font-medium text-[18px] text-primary bg-blue-gradient hover:bg-sky-700 rounded-[10px] outline-none ${styles} items-center justify-items-center `}>
             {loading ? <Loader2 /> : "Submit"}
           </button>
         </form>

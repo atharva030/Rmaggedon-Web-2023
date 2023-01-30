@@ -15,18 +15,18 @@ import { Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
 import Loader from "./Components/Loader";
 import { useState } from "react";
-
+// import Payment from "./Components/Payment/Payment";
 import Loader2 from "./Components/Loader2";
 const App = () => {
   const TRACKING_ID = "UA-255175997-1";
   ReactGA.initialize(TRACKING_ID);
   const [loading, setLoading] = useState(false);
-  useEffect(()=>{
-setLoading(true)
-setTimeout(()=>{
-setLoading(false)
-},2000)
-  },[])
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 2000)
+  }, [])
   // npm i react-ga4 
   // ReactGA.initialize("MEASUREMENT_ID") FROM REACT GA4 LATEST 
   // ReactGA.send({ hitType: "pageview", page: "/" });
@@ -34,8 +34,8 @@ setLoading(false)
     ReactGA.pageview(location.pathname + location.search);
   }, [location]);
   return (
-      <>
-     <Helmet>
+    <>
+      <Helmet>
         <title>Rmageddon 2023</title>
         <meta
           name="description"
@@ -46,40 +46,38 @@ setLoading(false)
           content="rnxg,rmageddon23,rmageddon,robotics,sggs,prizes, pac runner, retromania, ninja clash, competition, idealab"
         />
       </Helmet>
-    {loading ? (<Loader/>) : (
-      <div>
-        <div className="bg-primary w-full overflow-hidden">
-          <div className={`${styles.paddingX} ${styles.flexCenter}`}>
-            <div className={`${styles.boxWidth}`}>
-              <NavBar />
-            </div>
+      {loading ? (<Loader />) : (
+        <div>
+          <div className="bg-primary w-full overflow-hidden">
+            <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+              <div className={`${styles.boxWidth}`}>
+                <NavBar />
+              </div>
 
-          </div>
-          <div className={`bg-primary ${styles.flexStart}`}>
-            <div className={`${styles.boxWidth}`}>
-              <Hero />
-              {/* {state ? <Loader state={state}/> :<Hero/>} */}
             </div>
-          </div>
-          <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
-            <div className={`${styles.boxWidth}`}>
-              <Attraction />
-              <Reward />
-              {/* <Registation /> */}
-              <Card />
-              <Form />
-
-              <Footer />
+            <div className={`bg-primary ${styles.flexStart}`}>
+              <div className={`${styles.boxWidth}`}>
+                <Hero />
+                {/* {state ? <Loader state={state}/> :<Hero/>} */}
+              </div>
             </div>
+            <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
+              <div className={`${styles.boxWidth}`}>
+                <Attraction />
+                <Reward />
+                {/* <Registation /> */}
+                <Card />
+                <Form />
+                <Footer />
+              </div>
+            </div>
+            {/* <Trial/> */}
+            {/* <Loader2/> */}
           </div>
-          {/* <Trial/> */}
-          
 
         </div>
-
-      </div>
       )}
-     </>
+    </>
   );
 };
 export default App;
