@@ -67,7 +67,7 @@ setLoading(false)
               <Reward />
               {/* <Registation /> */}
               <Card />
-              {/* <Form /> */}
+              <Form />
 
               <Footer />
             </div>

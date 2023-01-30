@@ -101,17 +101,14 @@ const Form = () => {
   //////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////
   const [selectedOptions, setSelectedOptions] = useState([]);
+  // const [selectedOptions, setSelectedOptions] = useState([]);
   const [amount, setamount] = useState('')
   const [loading, setloading] = useState(Boolean)
   const [tcCheck, setTcCheck] = useState(false);
   const [captcha, setcaptcha] = useState(true)
   const [globalTruth, setglobalTruth] = useState(Boolean)
   const [formData, setFormData] = useState({
-    // checkboxValues: [],
-    gameOne:"",
-    gameTwo:"",
-    gameThree:"",
-    teamName: "",
+    checkboxValues: [],
     totalTeamMember: "",
     workshop: "",
     leaderName: "",
@@ -120,7 +117,7 @@ const Form = () => {
     leaderReg: "",
     leaderBranch: "",
     leaderYear: "",
-    txh_id: ""
+    transId: ""
   });
  
   const termCheck = () => {
@@ -150,13 +147,13 @@ const Form = () => {
     setloading(true)
     e.preventDefault();
 
-    if (e.target.checked) {
-      setCheckboxValues(...formData.checkboxValues, e.target.value);
-    } else {
-      setCheckboxValues(
-        checkboxValues.filter((value) => value !== e.target.value)
-      );
-    }
+    // if (e.target.checked) {
+    //   setCheckboxValues(...formData.checkboxValues, e.target.value);
+    // } else {
+    //   setCheckboxValues(
+    //     checkboxValues.filter((value) => value !== e.target.value)
+    //   );
+    // }
     console.log(formData);
     const response = await fetch(`https://rmaggedon.vercel.app/createuser`, {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
@@ -465,8 +462,8 @@ const Form = () => {
                   <legend id="Rno-legend">UPI Ref No.</legend>
                   <input
                     type="text"
-                    value={formData.txh_id}
-                    name="txh_id"
+                    value={formData.transId}
+                    name="transId"
                     autoComplete="off"
                     className="req_field"
                     id="leaderReg"
