@@ -11,6 +11,7 @@ import rnxgmp4 from "./rnxgmp4.json"
 import roborace from "./nddvb7S7R6.json"
 import rmageddon_logo from "./rmageddon_logo.anim.json"
 import mario from "./mario lodder .json"
+import QR from "./QR.png"
 export {
   facebook,
   instagram,
@@ -24,5 +25,5 @@ export {
  rnxgmp4,
  roborace,
  rmageddon_logo,
- mario
+ mario,QR
 };

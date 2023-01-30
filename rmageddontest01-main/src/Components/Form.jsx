@@ -5,7 +5,8 @@ import { Helmet } from "react-helmet";
 import { useState } from "react";
 import { useEffect } from "react";
 import styles from "../style";
-
+import Loader2 from "./Loader2";
+import QR from "../assets/QR.png"
 
 // import videobg1 from "../Asset/videobg1.mp4"
 const Form = () => {
@@ -35,6 +36,7 @@ const Form = () => {
 
   //////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////
+  const [loading, setloading] = useState(Boolean)
   const [tcCheck, setTcCheck] = useState(false);
   const [captcha, setcaptcha] = useState(true)
   const [globalTruth, setglobalTruth] = useState(Boolean)
@@ -69,7 +71,9 @@ const Form = () => {
   };
 
   const handleSubmit = async (e) => {
+    setloading(true)
     e.preventDefault();
+
     if (e.target.checked) {
       setCheckboxValues(...formData.checkboxValues, e.target.value);
     } else {
@@ -90,6 +94,7 @@ const Form = () => {
     console.log(formData);
     if (json.success) {
       e.preventDefault();
+      setloading(false);
       alert(
         "You have been successfully Registered for the events, Please check your emails for further updates"
       );
@@ -98,6 +103,7 @@ const Form = () => {
     } else {
       alert("Credentials that you entered must be unique");
       // location.reload()
+      setloading(false);
     }
   };
   const onchange = (e) => {
@@ -105,14 +111,14 @@ const Form = () => {
     console.log(formData.totalTeamMember);
   };
 
-  useEffect(()=>{
-  if(tcCheck == true && captcha == false ){
-   setglobalTruth(true)
-   console.log(globalTruth)
-  } 
+  useEffect(() => {
+    if (tcCheck == true && captcha == false) {
+      setglobalTruth(true)
+      console.log(globalTruth)
+    }
 
     console.log(formData.totalTeamMember)
-  },[globalTruth,tcCheck,captcha,formData])
+  }, [globalTruth, tcCheck, captcha, formData])
   // const handleChange = (e) => {
   //   setFormData({ ...formData, [e.target.name]: e.target.value });
   //   console.log(formData.totalTeamMember)
@@ -134,7 +140,7 @@ const Form = () => {
 
 
   function onChange() {
-   setcaptcha(false)
+    setcaptcha(false)
   }
   return (
     <>
@@ -175,7 +181,7 @@ const Form = () => {
                 <label>
                   <input
                     type="checkbox"
-                    value={"Retrofeista" }
+                    value={"Retrofeista"}
                     onChange={handleCheckboxChange}
                     required
                   />
@@ -209,7 +215,7 @@ const Form = () => {
                 value={formData.totalTeamMember}
                 name="totalTeamMember"
                 placeholder="Enter your totalTeamMember"
-                onChange ={(e) => { setFormData({ ...formData, [e.target.name]: e.target.value }); }}
+                onChange={(e) => { setFormData({ ...formData, [e.target.name]: e.target.value }); }}
                 required
               >
                 <option value="2">Choose Total Members</option>
@@ -347,16 +353,43 @@ const Form = () => {
                 <option value="Mfinal">Mtech Final Year</option>
               </select>
             </fieldset>
-            <div className="capcha-flex">
-              <ReCAPTCHA
-                sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
-                required
-                onChange={() => { setcaptcha(false) }}
-              />
-              <div className="captha"></div>
-            </div>
+            {/* <fieldset className=" ">
+              <fieldset className="input_field flex flex-col "> */}
+              <div className="boday w-[100%] justify-between  items-center  ">      
+               <div className="parent field_flex">
+                   <legend id="transastion_id">Transation ID</legend>
+                <input
+                  type="text"
+                  // value={"text"}
+                  autoComplete="off"
+                  className="req_field  "
+                  name="taransatin id"
+                  id="leaderEmail"
+                  placeholder="Enter your transation id"
+                  // onChange={(e) => { setFormData({ ...formData, [e.target.name]: e.target.value }) }}
+                  required
+                />
+                <div className="capcha-flex">
+                  <ReCAPTCHA
+                    sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                    required
+                    onChange={() => { setcaptcha(false) }}
+                  />
+                </div>
+                </div>
+                <span >
+                  <div
+                    className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative object:contain justify-end w-[100%]`}
+                  >
+                    <img
+                      src={QR}
+                      alt="payement QR  "
+                      className="object-contain scale-[1.2] w-[350] h-[350px]  relative z-[5] head-image"
+                    />
+                  </div>
+                  </span> 
+                  </div>
           </fieldset>
-
           {/* <fieldset>
           <legend className="first_legend">Second member</legend>
           <fieldset className="input_field">
@@ -648,9 +681,8 @@ const Form = () => {
               <a href="https://www.rnxg.co.in/Terms"> Terms and Condittions.</a>
             </label>
           </fieldset>
-
-          <button type="submit" disabled={captcha} className={`py-4 cursor-not-allowed new-btn px-6 font-poppins font-medium text-[18px] text-primary bg-blue-gradient hover:bg-sky-700 rounded-[10px] outline-none ${styles}`}>
-            Submit
+          <button type="submit" disabled={captcha} className={`w-[100px] h-[60px]  new-btn font-poppins font-medium text-[18px] text-primary bg-blue-gradient hover:bg-sky-700 rounded-[10px] outline-none ${styles} items-center justify-items-center `}>
+            {loading ? <Loader2 /> : "Submit"}
           </button>
         </form>
       </div>

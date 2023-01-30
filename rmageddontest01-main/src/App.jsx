@@ -72,7 +72,7 @@ setLoading(false)
           </div>
           {/* <Trial/> */}
           <Form />
-          {/* <Loader2/> */}
+
         </div>
 
       </div>
