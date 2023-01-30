@@ -71,6 +71,9 @@ const Navbar = () => {
         <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mr-6 `}>
           <a href="#battles">Battles</a>
         </li>
+        <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mr-6 `}>
+          <a href="#form">Register Now</a>
+        </li>
         <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mr-6`}>
           <a href="#connect">Connect</a>
         </li>
@@ -98,6 +101,9 @@ const Navbar = () => {
             </li>
             <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mb-2 `}>
                <a href="#battles">Battles</a>
+            </li>
+            <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mb-2 `}>
+               <a href="#form">Register Now</a>
             </li>
             <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mb-2`}>
             <a href="#connect">Connect</a>

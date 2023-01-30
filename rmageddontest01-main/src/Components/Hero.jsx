@@ -17,11 +17,12 @@ const Hero = () => {
           </h1>
         </div>
 
-        <h1 className="font-poppins  font-semibold ss:text-[76px] text-[52px]  text-white ss:leading-[80.8px] leading-[75px] w-full">
-          Experience the <br />
-          future of robotics
+        <h1 className="font-poppins  font-semibold ss:text-[63px] text-[52px]  text-white ss:leading-[80.8px] leading-[75px] w-full">
+          {/* Experience the <br />
+          future of robotics */}
+          INNOVATE CREATE CONQUER
         </h1>
-        <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
+        <p className={`font-poppins font-normal text-dimWhite text-[16px] leading-[28.8px] max-w-[470px] mt-5`}>
           Unleash the full potential of your robotic creations and showcase your
           skills to the elite in the field of robotics at RNXG. Compete for
           recognition and prizes at Rmageddon and be a part of the most exciting
