@@ -173,11 +173,11 @@ const Form = () => {
       alert(
         "You have been successfully Registered for the events, Please check your emails for further updates"
       );
-      // location.reload()
+      location.reload()
 
     } else {
       alert("Credentials that you entered must be unique");
-      // location.reload()
+      location.reload()
       setloading(false);
     }
   };
