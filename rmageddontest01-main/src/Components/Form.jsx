@@ -36,7 +36,7 @@ const InputOption = ({
     backgroundColor: bg,
     color: "inherit",
     display: "flex ",
-    width:"100%"
+    width: "100%"
   };
 
   // prop assignment
@@ -64,10 +64,10 @@ const InputOption = ({
 };
 
 const allOptions = [
-  { value: "RETROMANIA", label: "RETROMANIA" },
-  { value: "PAC RUNNER", label: "PAC RUNNER" },
-  { value: "NINJA CLASH", label: "NINJA CLASH" },
- 
+  { value: "RETROMANIA", amount: 400, label: "RETROMANIA" },
+  { value: "PAC RUNNER", amount: 400, label: "PAC RUNNER" },
+  { value: "NINJA CLASH", amount: 400, label: "NINJA CLASH" },
+
 ];
 
 
@@ -101,7 +101,7 @@ const Form = () => {
   //////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////
   const [selectedOptions, setSelectedOptions] = useState([]);
-
+  const [amount, setamount] = useState('')
   const [loading, setloading] = useState(Boolean)
   const [tcCheck, setTcCheck] = useState(false);
   const [captcha, setcaptcha] = useState(true)
@@ -118,11 +118,17 @@ const Form = () => {
     leaderReg: "",
     leaderBranch: "",
     leaderYear: "",
-    txh_id:""
+    txh_id: ""
   });
   const termCheck = () => {
     setTcCheck(!tcCheck);
   };
+
+  const PriceCalculator = () => {
+    setamount(formData.checkboxValues.length * 400)
+  }
+
+
   const handleCheckboxChange = (e) => {
     // Destructuring
     const { value, checked } = e.target;
@@ -178,17 +184,22 @@ const Form = () => {
     console.log(formData.totalTeamMember);
   };
 
+  
+
   useEffect(() => {
+    PriceCalculator()
+    
     if (tcCheck == true && captcha == false) {
       setglobalTruth(true)
       console.log(globalTruth)
       console.log(selectedOptions)
       console.log(formData.checkboxValues)
-      setFormData({...formData, checkboxValues:selectedOptions})
     }
 
+    setFormData({ ...formData, checkboxValues: selectedOptions })
+
     console.log(formData.totalTeamMember)
-  }, [globalTruth, tcCheck, captcha, ])
+  }, [globalTruth, tcCheck, captcha, amount])
   // const handleChange = (e) => {
   //   setFormData({ ...formData, [e.target.name]: e.target.value });
   //   console.log(formData.totalTeamMember)
@@ -278,15 +289,18 @@ const Form = () => {
             </fieldset> */}
 
             <Select
-             required
+              required
               defaultValue={[]}
               isMulti
               closeMenuOnSelect={false}
               hideSelectedOptions={false}
-              onChange={(options) => {
+              onChange={(options) => {setTcCheck(false)
                 if (Array.isArray(options)) {
-                  setSelectedOptions(options.map((opt) => opt.value));
-                }
+                  document.getElementById("checkbox").checked = false;
+
+                  setSelectedOptions(options.map((opt) => [opt.value, opt.amount]));
+                  
+                };
               }}
               options={allOptions}
               components={{
@@ -440,10 +454,10 @@ const Form = () => {
                 <option value="Mfinal">Mtech Final Year</option>
               </select>
             </fieldset>
-            {/* <fieldset className=" ">
-              <fieldset className="input_field flex flex-col "> */}
-              <div id="bodayy" className="boday w-[98%] justify-between  items-start flex  ">      
-               <div className="parent field_flex">
+            <div className="partion">
+              <hr className="line" />
+              <div className="amount_to_pay">
+                <h1><span>Total Amount :</span>  Rs {amount}/-</h1>
                 <fieldset className="input_field">
                   <legend id="Rno-legend">UPI Ref No.</legend>
                   <input
@@ -458,6 +472,13 @@ const Form = () => {
                     required
                   />
                 </fieldset>
+              </div>
+
+            </div>
+            {/* <fieldset className=" ">
+              <fieldset className="input_field flex flex-col "> */}
+            <div id="bodayy" className="boday w-[98%] justify-between  items-start flex  ">
+              <div className="parent field_flex">
                 <div className="capcha-flex">
                   <ReCAPTCHA
                     sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
@@ -465,295 +486,20 @@ const Form = () => {
                     onChange={() => { setcaptcha(false) }}
                   />
                 </div>
-                </div>
-                
-                  <div
-                    className="qrr"
-                  >
-                    <img
-                      src={QR}
-                      alt="payement QR  "
-                      className="object-contain scale-[1.2] w-[350] h-[350px]  relative z-[5] head-image"
-                    />
-                  </div>
-                  </div>
-          </fieldset>
-          {/* <fieldset>
-          <legend className="first_legend">Second member</legend>
-          <fieldset className="input_field">
-            <legend id="name-legend">Name:</legend>
-            <input
-              type="text"
-              value={formData.smName}
-              name="smName"
-              placeholder="Enter your smName"
-              onChange={onchange}
-              required
-            />
-          </fieldset>
-          <fieldset className="input_field">
-            <legend id="number-legend">Contact number:</legend>
-            <input
-              type="text"
-              value={formData.smPhone}
-              name="smPhone"
-              placeholder="Enter your smPhone"
-              onChange={onchange}
-              required
-            />
-          </fieldset>
-          <fieldset className="input_field">
-            <legend id="email-legend">Email:</legend>
-            <input
-              type="text"
-              value={formData.smEmail}
-              name="smEmail"
-              placeholder="Enter your smEmail"
-              onChange={onchange}
-              required
-            />
-          </fieldset>
-          <fieldset className="input_field">
-            <legend id="Rno-legend">Registration number:</legend>
-            <input
-              type="text"
-              value={formData.smReg}
-              name="smReg"
-              placeholder="Enter your smReg"
-              onChange={onchange}
-              required
-            />
-          </fieldset>
-          <fieldset className="input_field">
-            <legend>Branch:</legend>
-            <select
-              id="dropdown"
-              type="text"
-              value={formData.smBranch}
-              name="smBranch"
-              placeholder="Enter your smBranch"
-              onChange={onchange}
-              required
-            >
-              <option value="none">Choose member's branch</option>
-              <option value="cse">Computer Science And Engineering</option>
-              <option value="che">Chemical Engineering</option>
-              <option value="cie">Civil Engineering</option>
-              <option value="ete">
-                Electronics And Telecommunication Engineering
-              </option>
-              <option value="ele">Electrical Engineering</option>
-              <option value="int">Information Technology</option>
-              <option value="ine">Instrumentation Engineering</option>
-              <option value="mee">Mechanical Engineering</option>
-              <option value="tet">Textile Technology</option>
-              <option value="pre">Producation Engineering</option>
-            </select>
-          </fieldset>
-          <fieldset className="input_field">
-            <legend>Year:</legend>
-            <select
-              id="dropdown"
-              type="text"
-              value={formData.smYear}
-              name="smYear"
-              placeholder="Enter your smYear"
-              onChange={onchange}
-              required
-            >
-              <option value="none">Choose member's year</option>
-              <option value="first">First Year</option>
-              <option value="second">Second Year</option>
-              <option value="third">Third Year</option>
-              <option value="final">Final Year</option>
-            </select>
-          </fieldset>
-        </fieldset>
+              </div>
 
-        <fieldset id="fieldset1">
-          <legend className="first_legend">Third member</legend>
-          <fieldset className="input_field">
-            <legend id="name-legend">Name:</legend>
-            <input
-              type="text"
-              value={formData.tmName}
-              name="tmName"
-              placeholder="Enter your tmName"
-              onChange={onchange}
-              required
-            />
+              <div
+                className="qrr"
+              >
+                <img
+                  src={QR}
+                  alt="payement QR  "
+                  className="object-contain scale-[1.2] w-[350] h-[350px]  relative z-[5] head-image"
+                />
+              </div>
+            </div>
           </fieldset>
-          <fieldset className="input_field">
-            <legend id="number-legend">Contact number:</legend>
-            <input
-              type="text"
-              value={formData.tmPhone}
-              name="tmPhone"
-              placeholder="Enter your tmPhone"
-              onChange={onchange}
-              required
-            />
-          </fieldset>
-          <fieldset className="input_field">
-            <legend id="email-legend">Email:</legend>
-            <input
-              type="text"
-              value={formData.tmEmail}
-              name="tmEmail"
-              placeholder="Enter your tmEmail"
-              onChange={onchange}
-              required
-            />
-          </fieldset>
-          <fieldset className="input_field">
-            <legend id="Rno-legend">Registration number:</legend>
-            <input
-              type="text"
-              value={formData.tmReg}
-              name="tmReg"
-              placeholder="Enter your tmReg"
-              onChange={onchange}
-              required
-            />
-          </fieldset>
-          <fieldset className="input_field">
-            <legend>Branch:</legend>
-            <select
-              id="dropdown"
-              type="text"
-              value={formData.tmBranch}
-              name="tmBranch"
-              placeholder="Enter your tmBranch"
-              onChange={onchange}
-              required
-            >
-              <option value="none">Choose member's branch</option>
-              <option value="cse">Computer Science And Engineering</option>
-              <option value="che">Chemical Engineering</option>
-              <option value="cie">Civil Engineering</option>
-              <option value="ete">
-                Electronics And Telecommunication Engineering
-              </option>
-              <option value="ele">Electrical Engineering</option>
-              <option value="int">Information Technology</option>
-              <option value="ine">Instrumentation Engineering</option>
-              <option value="mee">Mechanical Engineering</option>
-              <option value="tet">Textile Technology</option>
-              <option value="pre">Producation Engineering</option>
-            </select>
-          </fieldset>
-          <fieldset className="input_field">
-            <legend>Year:</legend>
-            <select
-              id="dropdown"
-              type="text"
-              value={formData.tmYear}
-              name="tmYear"
-              placeholder="Enter your tmYear"
-              onChange={onchange}
-              required
-            >
-              <option value="none">Choose member's year</option>
-              <option value="first">First Year</option>
-              <option value="second">Second Year</option>
-              <option value="third">Third Year</option>
-              <option value="final">Final Year</option>
-            </select>
-          </fieldset>
-        </fieldset>
 
-        <fieldset id="fieldset2">
-          <legend className="first_legend">Fourth member</legend>
-          <fieldset className="input_field">
-            <legend id="name-legend">Name:</legend>
-            <input
-              type="text"
-              value={formData.fmName}
-              name="fmName"
-              placeholder="Enter your fmName"
-              onChange={onchange}
-              required
-            />
-          </fieldset>
-          <fieldset className="input_field">
-            <legend id="number-legend">Contact number:</legend>
-            <input
-              type="text"
-              value={formData.fmPhone}
-              name="fmPhone"
-              placeholder="Enter your fmPhone"
-              onChange={onchange}
-              required
-            />
-          </fieldset>
-          <fieldset className="input_field">
-            <legend id="email-legend">Email:</legend>
-            <input
-              type="text"
-              value={formData.fmEmail}
-              name="fmEmail"
-              placeholder="Enter your fmEmail"
-              onChange={onchange}
-              required
-            />
-          </fieldset>
-          <fieldset className="input_field">
-            <legend id="Rno-legend">Registration number:</legend>
-            <input
-              type="text"
-              value={formData.fmReg}
-              name="fmReg"
-              placeholder="Enter your fmReg"
-              onChange={onchange}
-              required
-            />
-          </fieldset>
-          <fieldset className="input_field">
-            <legend>Branch:</legend>
-            <select
-              type="text"
-              value={formData.fmBranch}
-              name="fmBranch"
-              placeholder="Enter your fmBranch"
-              onChange={onchange}
-              required
-            >
-              <option value="none">Choose member's branch</option>
-              <option value="cse">Computer Science And Engineering</option>
-              <option value="che">Chemical Engineering</option>
-              <option value="cie">Civil Engineering</option>
-              <option value="ete">
-                Electronics And Telecommunication Engineering
-              </option>
-              <option value="ele">Electrical Engineering</option>
-              <option value="int">Information Technology</option>
-              <option value="ine">Instrumentation Engineering</option>
-              <option value="mee">Mechanical Engineering</option>
-              <option value="tet">Textile Technology</option>
-              <option value="pre">Producation Engineering</option>
-            </select>
-          </fieldset>
-          <fieldset className="input_field">
-            <legend>Year:</legend>
-            <select
-              type="text"
-              value={formData.fmYear}
-              name="fmYear"
-              placeholder="Enter your fmYear"
-              onChange={onchange}
-              required
-            >
-              <option value="none">Choose member's year</option>
-              <option value="first">First Year</option>
-              <option value="second">Second Year</option>
-              <option value="third">Third Year</option>
-              <option value="final">Final Year</option>
-            </select>
-              
-          </fieldset>
-          
-        </fieldset> */}
-          {/* <input type="file" placeholder="Choose File" /> */}
           <fieldset className="T_C">
             <legend className="first_legend">Do you agree</legend>
             <label>
@@ -763,6 +509,7 @@ const Form = () => {
                 type="checkbox"
                 value="male"
                 onChange={termCheck}
+                id="checkbox"
               />
               By checking this, you conform and agree to the all
               <a href="https://www.rnxg.co.in/Privicy"> Privacy</a> and
@@ -774,6 +521,8 @@ const Form = () => {
           </button>
         </form>
       </div>
+
+
     </>
   );
 };

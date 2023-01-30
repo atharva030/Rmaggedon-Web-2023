@@ -121,10 +121,9 @@ option {
 }
 
 .capcha-flex {
-    margin: 30px 0 0 0;
-      display: flex;
-        width: 98%;
-        justify-content: left;
+  display: flex;
+  width: 98%;
+  justify-content: left;
 }
 
 .captha {
@@ -349,6 +348,39 @@ input:valid {
   transition-delay: none;
 }
 
+
+.partion {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* height: 10vh; */
+}
+
+.line {
+  width: 95%;
+    border: 1px solid grey;
+opacity: .3;
+}
+
+.amount_to_pay {
+  margin: 20px 0 0 0;
+  width: 98%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+.amount_to_pay h1 {
+  font-size: 25px;
+  color: #fff;
+}
+.amount_to_pay h1 span {
+font-weight: 700;
+}
+
+
 @media screen and (max-width: 1100px) {
   .input_field {
     width: 75vw;
@@ -369,22 +401,46 @@ input:valid {
   #button_center {
     gap: 10vw;
   }
+    .css-b62m3t-container {
+      width: 100% !important;
+  
+    }
 }
 
 @media screen and (max-width: 500px) {
   #button_center {
     gap: 5vw;
   }
-  #bodayy{
+   
+ .amount_to_pay{
+  flex-direction: column;
+ }
+ .amount_to_pay h1 {
+   font-size: 20px;
+   color: #fff;
+      margin-bottom: 10px;
+ }
+  #bodayy {
     flex-direction: column;
   }
+    .css-b62m3t-container {
+      width: 100% !important;
+  
+    }
 }
 
 @media screen and (max-width: 450px) {
   #button_center {
     gap: 2vw;
   }
-
+ .amount_to_pay {
+  flex-direction: column;
+ }
+ .amount_to_pay h1 {
+   font-size: 20px;
+   color: #fff;
+   margin-bottom: 10px;
+ }
   .button1,
   .button2 {
     margin-left: 0;
@@ -394,13 +450,28 @@ input:valid {
   .check {
     height: 60px;
   }
+            .css-b62m3t-container {
+              width: 100% !important;
+      
+            }
 }
 
 @media screen and (max-width: 400px) {
   h1 {
     font-size: 40px;
   }
-
+    .amount_to_pay {
+      flex-direction: column;
+    }
+         .amount_to_pay h1 {
+           font-size: 18px;
+           color: #fff;
+           margin-bottom: 10px;
+         }
+                         .css-b62m3t-container {
+                           width: 100% !important;
+            
+                         }
   #button_center {
     gap: 2vw;
   }
@@ -460,7 +531,7 @@ input:valid {
   }
 }
 
-.css-13cymwt-control svg{
+.css-b62m3t-container svg {
   position: relative !important;
 
 }
@@ -499,15 +570,17 @@ input:valid {
   color: #fff !important;
 
 }
+
 .css-tj5bde-Svg {
   fill: hsla(161, 100%, 44%, 1) !important;
 
 }
 
-.qrr{
-      width: 50%;
-        display: flex;
-        align-items: center;
-        height: 55vh;
-        justify-content: center;
+.qrr {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  height: 55vh;
+  justify-content: flex-end;
 }
+
