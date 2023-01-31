@@ -22,7 +22,9 @@ const Hero = () => {
           future of robotics */}
           INNOVATE CREATE CONQUER
         </h1>
-        <p className={`font-poppins font-normal text-dimWhite text-[16px] leading-[28.8px] max-w-[470px] mt-5`}>
+        <p
+          className={`font-poppins font-normal text-dimWhite text-[16px] leading-[28.8px] max-w-[470px] mt-5`}
+        >
           Unleash the full potential of your robotic creations and showcase your
           skills to the elite in the field of robotics at RNXG. Compete for
           recognition and prizes at Rmageddon and be a part of the most exciting
@@ -32,11 +34,11 @@ const Hero = () => {
       <div
         className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative object:contain`}
       >
-        <img
+        {/* <img
           src={rmageddon}
           alt="rmageddon"
           className="object-contain scale-[1.2] w-[80%] h-[80%]  relative z-[5] head-image"
-        />
+        /> */}
         <div className="absolute z-[0] w-[40%] h-[20%] top-0 g__gradient" />
         <div className="absolute z-[1] w-[80%] h-[40%] rounded-full white__gradient bottom-40" />
         <div className="absolute z-[0] w-[50%] h-[50%] right-20 bottom-20 b__gradient" />
