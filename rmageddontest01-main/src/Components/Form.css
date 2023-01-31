@@ -13,7 +13,16 @@
   font-size: 35px !important;
   font-weight: 600;
 }
-
+.rate-style{
+  font-size: 16px;
+  color: red;
+}
+.note-style{
+    color: white;
+    font-weight: 600;
+    font-size: 20px;
+    margin: 18px 0;
+}
 .form_main {
   display: flex;
   flex-direction: row;

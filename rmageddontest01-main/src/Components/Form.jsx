@@ -496,6 +496,7 @@ const Form = () => {
                     }}
                   />
                 </div>
+               
                 <h2>For Registration Query :</h2>
             <h3 style={{"color":"#fff "}}>Atharva Jagdale (8291798609)</h3>
             <h3 style={{"color":"#fff "}}> Adwait Bokade (9307108192)</h3>
@@ -514,8 +515,10 @@ const Form = () => {
 
           <div className="submitt">
           <h1 className="amount-display">
-                  <span>Total Amount :</span> Rs {amount}/-
+                  <span>Total Amount :</span> Rs {amount}/-<br/>
+                  <h6 className="rate-style">Per Game Rs. 400/-</h6>
                 </h1>
+                <h2 className="note-style"> Note: Make sure that captcha and the T&C box should be checked for the amount to be paid!</h2>
             <fieldset className="T_C">
               <legend className="first_legend">Do you agree</legend>
               <label>
