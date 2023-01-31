@@ -502,19 +502,18 @@ const Form = () => {
             <h3 style={{"color":"#fff "}}> Adwait Bokade (9307108192)</h3>
               </div>
 
-              <div className="qrr">
+              <div className="qrr ">
                 <img
                   src={QR}
                   alt="payement QR  "
-                  className="object-contain scale-[1.2] w-[350] h-[350px]  relative z-[5] head-image"
+                  className="object-contain scale-[1.2] w-[350] h-[350px]  relative z-[5] head-image  rounded-2xl mt-[20px]"
                 />
               </div>
             </div>
-            
           </fieldset>
 
           <div className="submitt">
-          <h1 className="amount-display">
+          <h1 className="amount-display mt-[20px]">
                   <span>Total Amount :</span> Rs {amount}/-<br/>
                   <h6 className="rate-style">Per Game Rs. 400/-</h6>
                 </h1>
@@ -544,7 +543,7 @@ const Form = () => {
               onClick={() => {
                 setFormData({ ...formData, paidAmt: amount });
               }}
-              className={`w-[100px] h-[60px]  new-btn font-poppins font-medium text-[18px] text-primary bg-blue-gradient hover:bg-sky-700 rounded-[10px] outline-none ${styles} items-center justify-items-center `}
+              className={`w-[100px] h-[60px]  new-btn font-poppins font-medium text-[18px] text-primary bg-blue-gradient hover:bg-sky-700 rounded-[10px] outline-none ${styles} items-center justify-items-center mr-[35%] ss:mr-[0px]`}
             >
               {loading ? <Loader2 /> : "Submit"}
             </button>
