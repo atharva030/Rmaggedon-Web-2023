@@ -390,7 +390,11 @@ input:valid {
   flex-direction: column;
   width: 80%;
 }
+.amount-display{
+  font-size: 27px;
+  color: #fff;
 
+}
 .submitt button{
 align-self: flex-end;
 margin-top: 10px;
