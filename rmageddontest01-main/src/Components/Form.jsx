@@ -267,6 +267,7 @@ const Form = () => {
               required
               defaultValue={[]}
               isMulti
+              placeholder="Choose your Games"
               closeMenuOnSelect={false}
               hideSelectedOptions={false}
               onChange={(options) => {
@@ -455,9 +456,7 @@ const Form = () => {
             <div className="partion">
               <hr className="line" />
               <div className="amount_to_pay">
-                <h1>
-                  <span>Total Amount :</span> Rs {amount}/-
-                </h1>
+               
                 <fieldset className="input_field">
                   <legend id="Rno-legend">UPI Ref No.(12 Digit)</legend>
                   <input
@@ -497,6 +496,9 @@ const Form = () => {
                     }}
                   />
                 </div>
+                <h2>For Registration Query :</h2>
+            <h3 style={{"color":"#fff "}}>Atharva Jagdale (8291798609)</h3>
+            <h3 style={{"color":"#fff "}}> Adwait Bokade (9307108192)</h3>
               </div>
 
               <div className="qrr">
@@ -507,12 +509,13 @@ const Form = () => {
                 />
               </div>
             </div>
-            <h2>For Registration Query :</h2>
-            <h3 style={{"color":"#fff "}}>Atharva Jagdale (8291798609)</h3>
-            <h3 style={{"color":"#fff "}}> Adwait Bokade (9307108192)</h3>
+            
           </fieldset>
 
           <div className="submitt">
+          <h1 className="amount-display">
+                  <span>Total Amount :</span> Rs {amount}/-
+                </h1>
             <fieldset className="T_C">
               <legend className="first_legend">Do you agree</legend>
               <label>
