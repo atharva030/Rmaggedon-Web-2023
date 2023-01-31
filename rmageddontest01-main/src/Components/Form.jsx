@@ -8,7 +8,7 @@ import styles from "../style";
 import Loader2 from "./Loader2";
 import QR from "../assets/QR.png";
 import Select, { components } from "react-select";
-
+import refenceImg from '../assets/ref.png'
 ///////////////////////////////////////////////////////////////////
 
 const InputOption = ({
@@ -456,9 +456,9 @@ const Form = () => {
             <div className="partion">
               <hr className="line" />
               <div className="amount_to_pay">
-               
+                 <img src={refenceImg} alt="" />
                 <fieldset className="input_field">
-                  <legend id="Rno-legend">UPI Ref No.(12 Digit)</legend>
+                  <legend id="Rno-legend">UPI Transaction ID(12 Digit)</legend>
                   <input
                     minLength={12}
                     maxLength={12}
@@ -520,7 +520,7 @@ const Form = () => {
                 </h1>
                 <h2 className="note-style"> Note: Make sure that captcha and the T&C box should be checked for the amount to be paid!</h2>
             <fieldset className="T_C">
-              <legend className="first_legend">Do you agree</legend>
+              {/* <legend className="first_legend">Do you agree</legend> */}
               <label>
                 <input
                   required
