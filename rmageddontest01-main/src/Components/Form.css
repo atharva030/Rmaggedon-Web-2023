@@ -373,7 +373,7 @@ input:valid {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 
 .amount_to_pay h1 {
@@ -384,16 +384,20 @@ input:valid {
 .amount_to_pay h1 span {
   font-weight: 700;
 }
-
+.dummy-container{
+  width: 223px;
+  height: 58px;
+  background-color: transparent;
+}
 .submitt {
   display: flex;
   flex-direction: column;
   width: 80%;
 }
 .amount-display{
-  font-size: 27px;
   color: #fff;
-
+  font-size: 28px;
+  margin-bottom: 21px;
 }
 .submitt button{
 align-self: flex-end;
