@@ -510,7 +510,6 @@ const Form = () => {
                 />
               </div>
             </div>
-            
           </fieldset>
 
           <div className="submitt">
@@ -544,7 +543,7 @@ const Form = () => {
               onClick={() => {
                 setFormData({ ...formData, paidAmt: amount });
               }}
-              className={`w-[100px] h-[60px]  new-btn font-poppins font-medium text-[18px] text-primary bg-blue-gradient hover:bg-sky-700 rounded-[10px] outline-none ${styles} items-center justify-items-center `}
+              className={`w-[100px] h-[60px]  new-btn font-poppins font-medium text-[18px] text-primary bg-blue-gradient hover:bg-sky-700 rounded-[10px] outline-none ${styles} items-center justify-items-center mr-[35%] ss:mr-[0px]`}
             >
               {loading ? <Loader2 /> : "Submit"}
             </button>
