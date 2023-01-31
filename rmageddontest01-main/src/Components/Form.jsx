@@ -502,11 +502,11 @@ const Form = () => {
             <h3 style={{"color":"#fff "}}> Adwait Bokade (9307108192)</h3>
               </div>
 
-              <div className="qrr">
+              <div className="qrr ">
                 <img
                   src={QR}
                   alt="payement QR  "
-                  className="object-contain scale-[1.2] w-[350] h-[350px]  relative z-[5] head-image  rounded-2xl"
+                  className="object-contain scale-[1.2] w-[350] h-[350px]  relative z-[5] head-image  rounded-2xl mt-[20px]"
                 />
               </div>
             </div>
@@ -514,7 +514,7 @@ const Form = () => {
           </fieldset>
 
           <div className="submitt">
-          <h1 className="amount-display">
+          <h1 className="amount-display mt-[20px]">
                   <span>Total Amount :</span> Rs {amount}/-<br/>
                   <h6 className="rate-style">Per Game Rs. 400/-</h6>
                 </h1>
