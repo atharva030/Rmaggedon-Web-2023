@@ -506,7 +506,7 @@ const Form = () => {
                 <img
                   src={QR}
                   alt="payement QR  "
-                  className="object-contain scale-[1.2] w-[350] h-[350px]  relative z-[5] head-image"
+                  className="object-contain scale-[1.2] w-[350] h-[350px]  relative z-[5] head-image  rounded-2xl"
                 />
               </div>
             </div>
