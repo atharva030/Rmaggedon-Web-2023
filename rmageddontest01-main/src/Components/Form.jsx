@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import styles from "../style";
 import Loader2 from "./Loader2";
-import QR from "../assets/QR.png"
+import QR from "../assets/QR.png";
 import Select, { components } from "react-select";
 
 ///////////////////////////////////////////////////////////////////
@@ -36,7 +36,7 @@ const InputOption = ({
     backgroundColor: bg,
     color: "inherit",
     display: "flex ",
-    width: "100%"
+    width: "100%",
   };
 
   // prop assignment
@@ -45,7 +45,7 @@ const InputOption = ({
     onMouseDown,
     onMouseUp,
     onMouseLeave,
-    style
+    style,
   };
 
   return (
@@ -67,9 +67,7 @@ const allOptions = [
   { value: "RETROMANIA", amount: 400, label: "RETROMANIA" },
   { value: "PAC RUNNER", amount: 400, label: "PAC RUNNER" },
   { value: "NINJA CLASH", amount: 400, label: "NINJA CLASH" },
-
 ];
-
 
 ////////////////////////////////////////////////////////////////
 
@@ -79,34 +77,15 @@ const Form = () => {
   //////////////////// Testing //////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   //////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////
   const [selectedOptions, setSelectedOptions] = useState([]);
   // const [selectedOptions, setSelectedOptions] = useState([]);
-  const [amount, setamount] = useState('')
-  const [loading, setloading] = useState(Boolean)
+  const [amount, setamount] = useState("");
+  const [loading, setloading] = useState(Boolean);
   const [tcCheck, setTcCheck] = useState(false);
-  const [captcha, setcaptcha] = useState(true)
-  const [globalTruth, setglobalTruth] = useState(Boolean)
+  const [captcha, setcaptcha] = useState(true);
+  const [globalTruth, setglobalTruth] = useState(Boolean);
   const [formData, setFormData] = useState({
     checkboxValues: [],
     totalTeamMember: "",
@@ -118,7 +97,7 @@ const Form = () => {
     leaderReg: "",
     leaderBranch: "",
     leaderYear: "",
-    transId: ""
+    transId: "",
   });
 
   const termCheck = () => {
@@ -126,10 +105,8 @@ const Form = () => {
   };
 
   const PriceCalculator = () => {
-    setamount(formData.checkboxValues.length * 400)
-    
-  }
-
+    setamount(formData.checkboxValues.length * 400);
+  };
 
   const handleCheckboxChange = (e) => {
     // Destructuring
@@ -146,7 +123,7 @@ const Form = () => {
   };
 
   const handleSubmit = async (e) => {
-    setloading(true)
+    setloading(true);
     e.preventDefault();
 
     // if (e.target.checked) {
@@ -173,11 +150,10 @@ const Form = () => {
       alert(
         "You have been successfully Registered for the events, Please check your emails for further updates"
       );
-      location.reload()
-
+      location.reload();
     } else {
       alert("Credentials that you entered must be unique");
-      location.reload()
+      location.reload();
       setloading(false);
     }
   };
@@ -186,22 +162,20 @@ const Form = () => {
   //   console.log(formData.totalTeamMember);
   // };
 
-
-
   useEffect(() => {
-    PriceCalculator()
+    PriceCalculator();
 
     if (tcCheck == true && captcha == false) {
-      setglobalTruth(true)
-      console.log(globalTruth)
-      console.log(selectedOptions)
-      console.log(formData.checkboxValues)
+      setglobalTruth(true);
+      console.log(globalTruth);
+      console.log(selectedOptions);
+      console.log(formData.checkboxValues);
     }
 
-    setFormData({ ...formData, checkboxValues: selectedOptions })
+    setFormData({ ...formData, checkboxValues: selectedOptions });
 
-    console.log(formData.totalTeamMember)
-  }, [globalTruth, tcCheck, captcha, amount])
+    console.log(formData.totalTeamMember);
+  }, [globalTruth, tcCheck, captcha, amount]);
   // const handleChange = (e) => {
   //   setFormData({ ...formData, [e.target.name]: e.target.value });
   //   console.log(formData.totalTeamMember)
@@ -219,11 +193,8 @@ const Form = () => {
   //   }
   // };
 
-
-
-
   function onChange() {
-    setcaptcha(false)
+    setcaptcha(false);
   }
   return (
     <>
@@ -251,7 +222,9 @@ const Form = () => {
                 id="teamName"
                 autoComplete="off"
                 placeholder="Enter your Team Name"
-                onChange={(e) => { setFormData({ ...formData, [e.target.name]: e.target.value }) }}
+                onChange={(e) => {
+                  setFormData({ ...formData, [e.target.name]: e.target.value });
+                }}
                 required
               />
             </fieldset>
@@ -297,17 +270,18 @@ const Form = () => {
               closeMenuOnSelect={false}
               hideSelectedOptions={false}
               onChange={(options) => {
-                setTcCheck(false)
+                setTcCheck(false);
                 if (Array.isArray(options)) {
                   document.getElementById("checkbox").checked = false;
 
-                  setSelectedOptions(options.map((opt) => [opt.value, opt.amount]));
-
-                };
+                  setSelectedOptions(
+                    options.map((opt) => [opt.value, opt.amount])
+                  );
+                }
               }}
               options={allOptions}
               components={{
-                Option: InputOption
+                Option: InputOption,
               }}
             />
             <fieldset className="input_field">
@@ -319,10 +293,13 @@ const Form = () => {
                 value={formData.totalTeamMember}
                 name="totalTeamMember"
                 placeholder="Enter your totalTeamMember"
-                onChange={(e) => { setFormData({ ...formData, [e.target.name]: e.target.value }); }}
+                onChange={(e) => {
+                  setFormData({ ...formData, [e.target.name]: e.target.value });
+                }}
                 required
               >
-                <option value="2">Choose Total Members</option>
+                <option value="">Choose Total Members</option>
+                <option value="2">2 Members</option>
                 <option value="3">3 Members</option>
                 <option value="4">4 Members</option>
               </select>
@@ -335,7 +312,9 @@ const Form = () => {
                 type="text"
                 value={formData.workshop}
                 name="workshop"
-                onChange={(e) => { setFormData({ ...formData, [e.target.name]: e.target.value }) }}
+                onChange={(e) => {
+                  setFormData({ ...formData, [e.target.name]: e.target.value });
+                }}
                 required
               >
                 <option value="">Have you attended?</option>
@@ -357,7 +336,9 @@ const Form = () => {
                 name="leaderName"
                 id="leaderName"
                 placeholder="Enter your Leader Name"
-                onChange={(e) => { setFormData({ ...formData, [e.target.name]: e.target.value }) }}
+                onChange={(e) => {
+                  setFormData({ ...formData, [e.target.name]: e.target.value });
+                }}
                 required
               />
             </fieldset>
@@ -373,7 +354,9 @@ const Form = () => {
                 name="leaderPhone"
                 id="leaderPhone"
                 placeholder="Enter your Leader Phone"
-                onChange={(e) => { setFormData({ ...formData, [e.target.name]: e.target.value }) }}
+                onChange={(e) => {
+                  setFormData({ ...formData, [e.target.name]: e.target.value });
+                }}
                 required
               />
             </fieldset>
@@ -387,7 +370,9 @@ const Form = () => {
                 name="leaderEmail"
                 id="leaderEmail"
                 placeholder="Enter your Leader Email"
-                onChange={(e) => { setFormData({ ...formData, [e.target.name]: e.target.value }) }}
+                onChange={(e) => {
+                  setFormData({ ...formData, [e.target.name]: e.target.value });
+                }}
                 required
               />
             </fieldset>
@@ -403,7 +388,9 @@ const Form = () => {
                 className="req_field"
                 id="leaderReg"
                 placeholder="Enter your Leader Registration"
-                onChange={(e) => { setFormData({ ...formData, [e.target.name]: e.target.value }) }}
+                onChange={(e) => {
+                  setFormData({ ...formData, [e.target.name]: e.target.value });
+                }}
                 required
               />
             </fieldset>
@@ -416,7 +403,9 @@ const Form = () => {
                 value={formData.leaderBranch}
                 name="leaderBranch"
                 placeholder="Enter your leaderBranch"
-                onChange={(e) => { setFormData({ ...formData, [e.target.name]: e.target.value }) }}
+                onChange={(e) => {
+                  setFormData({ ...formData, [e.target.name]: e.target.value });
+                }}
                 required
               >
                 <option value="none">Choose your branch</option>
@@ -449,7 +438,9 @@ const Form = () => {
                 value={formData.leaderYear}
                 name="leaderYear"
                 placeholder="Enter your leaderYear"
-                onChange={(e) => { setFormData({ ...formData, [e.target.name]: e.target.value }) }}
+                onChange={(e) => {
+                  setFormData({ ...formData, [e.target.name]: e.target.value });
+                }}
                 required
               >
                 <option value="">Choose your year of study</option>
@@ -464,9 +455,11 @@ const Form = () => {
             <div className="partion">
               <hr className="line" />
               <div className="amount_to_pay">
-                <h1><span>Total Amount :</span>  Rs {amount}/-</h1>
+                <h1>
+                  <span>Total Amount :</span> Rs {amount}/-
+                </h1>
                 <fieldset className="input_field">
-                  <legend id="Rno-legend">UPI Ref No.</legend>
+                  <legend id="Rno-legend">UPI Ref No.(12 Digit)</legend>
                   <input
                     minLength={12}
                     maxLength={12}
@@ -477,29 +470,36 @@ const Form = () => {
                     className="req_field"
                     id="leaderReg"
                     placeholder="Enter your UPI Refrence No"
-                    onChange={(e) => { setFormData({ ...formData, [e.target.name]: e.target.value }) }}
+                    onChange={(e) => {
+                      setFormData({
+                        ...formData,
+                        [e.target.name]: e.target.value,
+                      });
+                    }}
                     required
                   />
                 </fieldset>
               </div>
-
             </div>
             {/* <fieldset className=" ">
               <fieldset className="input_field flex flex-col "> */}
-            <div id="bodayy" className="boday w-[98%] justify-between  items-start flex  ">
+            <div
+              id="bodayy"
+              className="boday w-[98%] justify-between  items-start flex  "
+            >
               <div className="parent field_flex">
                 <div className="capcha-flex">
                   <ReCAPTCHA
                     sitekey="6LfcoAgjAAAAAJIx9Dxa6c9Z_CaQqgU7dObKIWaU"
                     required
-                    onChange={() => { setcaptcha(false) }}
+                    onChange={() => {
+                      setcaptcha(false);
+                    }}
                   />
                 </div>
               </div>
 
-              <div
-                className="qrr"
-              >
+              <div className="qrr">
                 <img
                   src={QR}
                   alt="payement QR  "
@@ -507,34 +507,44 @@ const Form = () => {
                 />
               </div>
             </div>
+            <h2>For Registration Query :</h2>
+            <h3 style={{"color":"#fff "}}>Atharva Jagdale (8291798609)</h3>
+            <h3 style={{"color":"#fff "}}> Adwait Bokade (9307108192)</h3>
           </fieldset>
-  
-         <div className="submitt">
-                    <fieldset className="T_C">
-            <legend className="first_legend">Do you agree</legend>
-            <label>
-              <input
-                required
-                name="checkbox"
-                type="checkbox"
-                value="male"
-                onChange={termCheck}
-                id="checkbox"
-              />
-              By checking this, you confirm and agree to the all
-              <a href="https://www.rnxg.co.in/Privicy"> Privacy</a> and
-              <a href="https://www.rnxg.co.in/Terms"> Terms and Conditions.</a>
-            </label>
-          </fieldset>
-          <button type="submit" disabled={captcha} onClick={() => { setFormData({ ...formData, paidAmt: amount })}} className={`w-[100px] h-[60px]  new-btn font-poppins font-medium text-[18px] text-primary bg-blue-gradient hover:bg-sky-700 rounded-[10px] outline-none ${styles} items-center justify-items-center `}>
-            {loading ? <Loader2 /> : "Submit"}
-          </button>
-         </div>
 
+          <div className="submitt">
+            <fieldset className="T_C">
+              <legend className="first_legend">Do you agree</legend>
+              <label>
+                <input
+                  required
+                  name="checkbox"
+                  type="checkbox"
+                  value="male"
+                  onChange={termCheck}
+                  id="checkbox"
+                />
+                By checking this, you confirm and agree to the all
+                <a href="https://www.rnxg.co.in/Privicy"> Privacy</a> and
+                <a href="https://www.rnxg.co.in/Terms">
+                  {" "}
+                  Terms and Conditions.
+                </a>
+              </label>
+            </fieldset>
+            <button
+              type="submit"
+              disabled={captcha}
+              onClick={() => {
+                setFormData({ ...formData, paidAmt: amount });
+              }}
+              className={`w-[100px] h-[60px]  new-btn font-poppins font-medium text-[18px] text-primary bg-blue-gradient hover:bg-sky-700 rounded-[10px] outline-none ${styles} items-center justify-items-center `}
+            >
+              {loading ? <Loader2 /> : "Submit"}
+            </button>
+          </div>
         </form>
       </div>
-
-
     </>
   );
 };
