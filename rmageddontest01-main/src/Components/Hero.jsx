@@ -34,11 +34,11 @@ const Hero = () => {
       <div
         className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative object:contain`}
       >
-        {/* <img
+        <img
           src={rmageddon}
           alt="rmageddon"
           className="object-contain scale-[1.2] w-[80%] h-[80%]  relative z-[5] head-image"
-        /> */}
+        />
         <div className="absolute z-[0] w-[40%] h-[20%] top-0 g__gradient" />
         <div className="absolute z-[1] w-[80%] h-[40%] rounded-full white__gradient bottom-40" />
         <div className="absolute z-[0] w-[50%] h-[50%] right-20 bottom-20 b__gradient" />
