@@ -387,6 +387,8 @@ input:valid {
   width: 275px;
   object-fit: cover;
   height: 300px;
+  border-radius: 15px;
+
 }
 
 .amount_to_pay h1 {
