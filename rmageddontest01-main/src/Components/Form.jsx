@@ -9,6 +9,7 @@ import Loader2 from "./Loader2";
 import QR from "../assets/QR.png";
 import Select, { components } from "react-select";
 import refenceImg from '../assets/ref.png'
+
 ///////////////////////////////////////////////////////////////////
 
 const InputOption = ({
@@ -82,6 +83,8 @@ const Form = () => {
   const [selectedOptions, setSelectedOptions] = useState([]);
   // const [selectedOptions, setSelectedOptions] = useState([]);
   const [amount, setamount] = useState("");
+  const [discount, setdiscount] = useState("");
+  const [reduced, setreduced] = useState("");
   const [loading, setloading] = useState(Boolean);
   const [tcCheck, setTcCheck] = useState(false);
   const [captcha, setcaptcha] = useState(true);
@@ -104,9 +107,44 @@ const Form = () => {
     setTcCheck(!tcCheck);
   };
 
-  const PriceCalculator = () => {
-    setamount(formData.checkboxValues.length * 400);
+  const PriceCalculator = (options) => {
+
+   
+      setTcCheck(false);
+      if (Array.isArray(options)) {
+        document.getElementById("checkbox").checked = false;
+
+        setSelectedOptions(
+          options.map((opt) => [opt.value, opt.amount])
+        );
+      }
+    
+
+    if (formData.checkboxValues.length == 1) {
+      setamount(formData.checkboxValues.length * 400);
+      setdiscount(null)
+      setreduced(null)
+    }
+    else if (formData.checkboxValues.length == 2) {
+      setamount((formData.checkboxValues.length * 400) - 80);
+      setdiscount("10% Discount Applied")
+      setreduced("₹ 800")
+
+    }
+    else if (formData.checkboxValues.length == 3) {
+      setamount((formData.checkboxValues.length * 400) - 180);
+      setdiscount("15% Discount Applied")
+      setreduced("₹ 1200")
+
+
+    }
+    else {
+      setamount(0);
+      setdiscount(null)
+      setreduced(null)
+    }
   };
+  
 
   const handleCheckboxChange = (e) => {
     // Destructuring
@@ -157,25 +195,21 @@ const Form = () => {
       setloading(false);
     }
   };
-  // const onchange = (e) => {
-  //   setFormData({ ...formData, [e.target.name]: e.target.value }); //this is mainly use to reflect the change in words on frontend
-  //   console.log(formData.totalTeamMember);
-  // };
+
 
   useEffect(() => {
-    PriceCalculator();
+  PriceCalculator()
 
     if (tcCheck == true && captcha == false) {
       setglobalTruth(true);
-      console.log(globalTruth);
-      console.log(selectedOptions);
-      console.log(formData.checkboxValues);
+      // console.log(globalTruth);
+      // console.log(selectedOptions);
+      // console.log(formData.checkboxValues);
     }
 
     setFormData({ ...formData, checkboxValues: selectedOptions });
-
-    console.log(formData.totalTeamMember);
-  }, [globalTruth, tcCheck, captcha, amount]);
+    // console.log(formData.totalTeamMember);
+  }, [globalTruth, tcCheck, captcha]);   
   // const handleChange = (e) => {
   //   setFormData({ ...formData, [e.target.name]: e.target.value });
   //   console.log(formData.totalTeamMember)
@@ -193,9 +227,7 @@ const Form = () => {
   //   }
   // };
 
-  function onChange() {
-    setcaptcha(false);
-  }
+
   return (
     <>
       <Helmet>
@@ -270,16 +302,7 @@ const Form = () => {
               placeholder="Choose your Games"
               closeMenuOnSelect={false}
               hideSelectedOptions={false}
-              onChange={(options) => {
-                setTcCheck(false);
-                if (Array.isArray(options)) {
-                  document.getElementById("checkbox").checked = false;
-
-                  setSelectedOptions(
-                    options.map((opt) => [opt.value, opt.amount])
-                  );
-                }
-              }}
+              onChange={PriceCalculator}
               options={allOptions}
               components={{
                 Option: InputOption,
@@ -456,7 +479,7 @@ const Form = () => {
             <div className="partion">
               <hr className="line" />
               <div className="amount_to_pay">
-                 <img src={refenceImg} alt="" />
+                <img src={refenceImg} alt="" />
                 <fieldset className="input_field">
                   <legend id="Rno-legend">UPI Transaction ID(12 Digit)</legend>
                   <input
@@ -496,10 +519,10 @@ const Form = () => {
                     }}
                   />
                 </div>
-               
+
                 <h2>For Registration Query :</h2>
-            <h3 style={{"color":"#fff "}}>Atharva Jagdale (8291798609)</h3>
-            <h3 style={{"color":"#fff "}}> Adwait Bokade (9307108192)</h3>
+                <h3 style={{ "color": "#fff " }}>Atharva Jagdale (8291798609)</h3>
+                <h3 style={{ "color": "#fff " }}> Adwait Bokade (9307108192)</h3>
               </div>
 
               <div className="qrr ">
@@ -513,11 +536,12 @@ const Form = () => {
           </fieldset>
 
           <div className="submitt">
-          <h1 className="amount-display mt-[20px]">
-                  <span>Total Amount :</span> Rs {amount}/-<br/>
-                  <h6 className="rate-style">Per Game Rs. 400/-</h6>
-                </h1>
-                <h2 className="note-style"> Note: Make sure that captcha and the T&C box should be checked for the amount to be paid!</h2>
+            <h1 className="amount-display mt-[20px]">
+              <span>Total Amount :</span> ₹{amount}/- <br />
+              <h6 className="Discount-style">{discount} <span>{reduced}</span></h6>
+            </h1>
+            <h2 className="note-style"> Note: Make sure that captcha and the T&C box should be checked for the amount to be paid!</h2>
+
             <fieldset className="T_C">
               {/* <legend className="first_legend">Do you agree</legend> */}
               <label>
@@ -534,7 +558,8 @@ const Form = () => {
                 <a href="https://www.rnxg.co.in/Terms">
                   {" "}
                   Terms and Conditions.
-                </a>
+                </a>            <h6 className="rate-style">Per Game ₹400/-</h6>
+
               </label>
             </fieldset>
             <button

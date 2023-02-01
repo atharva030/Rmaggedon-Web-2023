@@ -1,13 +1,15 @@
 import { useState } from "react";
+import './timer.css'
 
 import { close, menu } from "../assets";
 import { navLinks } from "../Constant";
+import Timer from "./Timer";
 
 const Navbar = () => {
   const [active, setActive] = useState("Home");
   const [toggle, setToggle] = useState(false);
   return (
-    <nav className="w-full flex py-6 justify-between items-center navbar">
+    <nav className="w-full flex py-6 justify-between items-center navbar h-[120px]">
       {/* <a
         className="w-[32px] h-[32px] text-white text-4xl text-bold cursor-pointer"
         href="https://www.rnxg.co.in/"
@@ -61,7 +63,10 @@ const Navbar = () => {
       >
         RNXG
       </a>
+
       <ul className="list-none md:flex hidden justify-end items-center flex-1 ">
+
+
         <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mr-6`}>
           <a href="/">Home</a>
         </li>
@@ -73,10 +78,9 @@ const Navbar = () => {
         </li>
         <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mr-6`}>
           <a href="#form">Register Now </a>
-        </li>      
-         <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mr-6`}>
-          <a href="#connect">Connect</a>
         </li>
+
+
         {/* <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mr-6`}>
           <a href="#register">Register</a>
         </li> */}
@@ -94,19 +98,19 @@ const Navbar = () => {
         >
           <ul className="list-none flex justify-end items-start flex-1 flex-col">
             <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mb-2`}>
-            <a href="/">Home</a>
+              <a href="/">Home</a>
             </li>
             <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mb-2 `}>
-            <a href="#treasure">Treasure</a>
+              <a href="#treasure">Treasure</a>
             </li>
             <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mb-2 `}>
-               <a href="#battles">Battles</a>
+              <a href="#battles">Battles</a>
             </li>
             <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mb-2`}>
-            <a href="#form">Register Now </a>
-            </li>        
-                <li className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mb-2`}>
-            <a href="#connect">Connect</a>
+              <a href="#form">Register Now </a>
+            </li>
+            <li className={`w-[300px] font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-white mb-2`}>
+              <a href="#connect">Connect</a>
             </li>
           </ul>
         </div>

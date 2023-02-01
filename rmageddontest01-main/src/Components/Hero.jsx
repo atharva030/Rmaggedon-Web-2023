@@ -1,5 +1,9 @@
 import styles from "../style";
 import { rmageddon } from "../assets";
+import Timer from "./Timer";
+import Watch from '../assets/navgif.gif'
+import Hurry from '../assets/hurry.png'
+
 
 const Hero = () => {
   return (
@@ -30,6 +34,10 @@ const Hero = () => {
           recognition and prizes at Rmageddon and be a part of the most exciting
           college robotics event of the year!
         </p>
+        <div className="ender">
+          <p> <img src={Watch} alt="" width={50} /> <span>Hurry !</span>  </p>   <Timer />
+
+        </div>
       </div>
       <div
         className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative object:contain`}
