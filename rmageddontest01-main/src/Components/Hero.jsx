@@ -34,6 +34,8 @@ const Hero = () => {
           recognition and prizes at Rmageddon and be a part of the most exciting
           college robotics event of the year!
         </p>
+        {/* <h2 clasName="discount-text">Get Extra 10% off on selection of any 2 games</h2>
+        <h2 clasName="discount-text">Get Extra 15% off on selection of 3 games</h2> */}
         <div className="ender">
           <p> <img src={Watch} alt="" width={50} /> <span>Hurry !</span>  </p>   <Timer />
 

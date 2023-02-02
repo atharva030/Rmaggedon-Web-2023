@@ -65,7 +65,7 @@ const App = () => {
               <div className={`${styles.boxWidth}`}>
                 <Attraction />
                 <Reward />
-                {/* <Registation /> */}
+                <Registation />
                 <Card />
                 <Form />
                 <Footer />

@@ -9,7 +9,7 @@ const Navbar = () => {
   const [active, setActive] = useState("Home");
   const [toggle, setToggle] = useState(false);
   return (
-    <nav className="w-full flex py-6 justify-between items-center navbar h-[120px]">
+    <nav className="w-full flex pb-5 justify-between items-center navbar h-[120px]">
       {/* <a
         className="w-[32px] h-[32px] text-white text-4xl text-bold cursor-pointer"
         href="https://www.rnxg.co.in/"

@@ -201,3 +201,9 @@ svg {
   font-size: 18px;
   font-weight: 100;
 }
+
+.discount-text{
+  color: white;
+  font-weight: 600;
+  font-size: 30px;
+}
