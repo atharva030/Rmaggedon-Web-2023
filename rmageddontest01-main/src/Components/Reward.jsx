@@ -38,7 +38,7 @@ const Reward = () => (
         Top 3 teams from each game will be allowed to sit for interviews for direct recruitment!!
         </li>
         <li className="list-disc">
-          Teams will be awarded on the basis of their design, speed and other parameters of their bots
+          Teams will be awarded on the basis of their design, speed and other parameters of their bots.
         </li>
       </ul>
 
