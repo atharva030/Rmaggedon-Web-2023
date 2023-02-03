@@ -34,6 +34,12 @@ const Reward = () => (
         <li className="list-disc">
           Exciting Prizes and Certificates after completion
         </li>
+        <li className="list-disc">
+        Top 3 teams from each game will be allowed to sit for interviews for direct recruitment!!
+        </li>
+        <li className="list-disc">
+          Teams will be awarded on the basis of their design, speed and other parameters of their bots
+        </li>
       </ul>
 
       {/* <Button styles={`mt-10`} /> */}
