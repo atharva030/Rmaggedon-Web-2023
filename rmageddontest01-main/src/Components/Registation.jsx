@@ -3,6 +3,7 @@ import { GiClick } from "react-icons/gi";
 import { AiOutlineForm } from "react-icons/ai";
 import { MdCelebration } from "react-icons/md";
 import { step_image } from "../assets";
+import styles from "../style";
 const Registation = () => {
   return (
     <section id="register" name="register">
@@ -72,10 +73,10 @@ const Registation = () => {
             </div>
           </div>
 
-          <div className="hidden lg:flex lg:items-center lg:w-1/2 lg:justify-center">
+          <div  className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative object:contain`}>
             <a href="" target={"/"}>
               <img
-                className="w-[28rem] h-[28rem] object-cover xl:w-[34rem] xl:h-[34rem] rounded-full bg-black-gradient"
+                className="w-[28rem] h-[28rem] object-cover xl:w-[34rem] xl:h-[34rem]  rounde bg-black-gradient"
                 src={step_image}
                 alt="image"
               />

@@ -9,6 +9,7 @@ import Loader2 from "./Loader2";
 import QR from "../assets/QR.png";
 import Select, { components } from "react-select";
 import refenceImg from '../assets/ref.png'
+import Cuppon from "./Cupponcode"
 ///////////////////////////////////////////////////////////////////
 
 const InputOption = ({
@@ -547,6 +548,8 @@ const Form = () => {
             >
               {loading ? <Loader2 /> : "Submit"}
             </button>
+
+        <Cuppon/>
           </div>
         </form>
       </div>
@@ -555,3 +558,4 @@ const Form = () => {
 };
 
 export default Form;
+

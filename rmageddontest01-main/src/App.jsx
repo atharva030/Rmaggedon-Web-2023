@@ -17,6 +17,7 @@ import Loader from "./Components/Loader";
 import { useState } from "react";
 // import Payment from "./Components/Payment/Payment";
 import Loader2 from "./Components/Loader2";
+import Popup from "reactjs-popup";
 const App = () => {
   const TRACKING_ID = "UA-255175997-1";
   ReactGA.initialize(TRACKING_ID);
@@ -58,6 +59,7 @@ const App = () => {
             <div className={`bg-primary ${styles.flexStart}`}>
               <div className={`${styles.boxWidth}`}>
                 <Hero />
+                {/* <Popup/> */}
                 {/* {state ? <Loader state={state}/> :<Hero/>} */}
               </div>
             </div>
@@ -65,7 +67,7 @@ const App = () => {
               <div className={`${styles.boxWidth}`}>
                 <Attraction />
                 <Reward />
-                {/* <Registation /> */}
+                <Registation />
                 <Card />
                 <Form />
                 <Footer />
