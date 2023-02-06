@@ -12,63 +12,63 @@ import refenceImg from '../assets/ref.png'
 
 ///////////////////////////////////////////////////////////////////
 
-// const InputOption = ({
-//   getStyles,
-//   Icon,
-//   isDisabled,
-//   isFocused,
-//   isSelected,
-//   children,
-//   innerProps,
-//   ...rest
-// }) => {
-//   const [isActive, setIsActive] = useState(false);
-//   const onMouseDown = () => setIsActive(true);
-//   const onMouseUp = () => setIsActive(false);
-//   const onMouseLeave = () => setIsActive(false);
+const InputOption = ({
+  getStyles,
+  Icon,
+  isDisabled,
+  isFocused,
+  isSelected,
+  children,
+  innerProps,
+  ...rest
+}) => {
+  const [isActive, setIsActive] = useState(false);
+  const onMouseDown = () => setIsActive(true);
+  const onMouseUp = () => setIsActive(false);
+  const onMouseLeave = () => setIsActive(false);
 
-//   // styles
-//   let bg = "transparent";
-//   if (isFocused) bg = "#eee";
-//   if (isActive) bg = "#B2D4FF";
+  // styles
+  let bg = "transparent";
+  if (isFocused) bg = "#eee";
+  if (isActive) bg = "#B2D4FF";
 
-//   const style = {
-//     alignItems: "center",
-//     backgroundColor: bg,
-//     color: "inherit",
-//     display: "flex ",
-//     width: "100%",
-//   };
+  const style = {
+    alignItems: "center",
+    backgroundColor: bg,
+    color: "inherit",
+    display: "flex ",
+    width: "100%",
+  };
 
-//   // prop assignment
-//   const props = {
-//     ...innerProps,
-//     onMouseDown,
-//     onMouseUp,
-//     onMouseLeave,
-//     style,
-//   };
+  // prop assignment
+  const props = {
+    ...innerProps,
+    onMouseDown,
+    onMouseUp,
+    onMouseLeave,
+    style,
+  };
 
-//   return (
-//     <components.Option
-//       {...rest}
-//       isDisabled={isDisabled}
-//       isFocused={isFocused}
-//       isSelected={isSelected}
-//       getStyles={getStyles}
-//       innerProps={props}
-//     >
-//       <input type="checkbox" checked={isSelected} />
-//       {children}
-//     </components.Option>
-//   );
-// };
+  return (
+    <components.Option
+      {...rest}
+      isDisabled={isDisabled}
+      isFocused={isFocused}
+      isSelected={isSelected}
+      getStyles={getStyles}
+      innerProps={props}
+    >
+      <input type="checkbox" checked={isSelected} />
+      {children}
+    </components.Option>
+  );
+};
 
-// const allOptions = [
-//   { value: "RETROMANIA", amount: 400, label: "RETROMANIA" },
-//   { value: "PAC RUNNER", amount: 400, label: "PAC RUNNER" },
-//   { value: "NINJA CLASH", amount: 400, label: "NINJA CLASH" },
-// ];
+const allOptions = [
+  { value: "RETROMANIA", amount: 400, label: "RETROMANIA" },
+  { value: "PAC RUNNER", amount: 400, label: "PAC RUNNER" },
+  { value: "NINJA CLASH", amount: 400, label: "NINJA CLASH" },
+];
 
 ////////////////////////////////////////////////////////////////
 
@@ -80,70 +80,71 @@ const Form = () => {
 
   //////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////
+  const [selectedOptions, setSelectedOptions] = useState([]);
   // const [selectedOptions, setSelectedOptions] = useState([]);
-  // // const [selectedOptions, setSelectedOptions] = useState([]);
-  // const [amount, setamount] = useState("");
-  // const [discount, setdiscount] = useState("");
-  // const [reduced, setreduced] = useState("");
-  // const [loading, setloading] = useState(Boolean);
-  // const [tcCheck, setTcCheck] = useState(false);
-  // const [captcha, setcaptcha] = useState(true);
-  // const [globalTruth, setglobalTruth] = useState(Boolean);
-  // const [formData, setFormData] = useState({
-  //   checkboxValues: [],
-  //   totalTeamMember: "",
-  //   paidAmt: amount,
-  //   workshop: "",
-  //   leaderName: "",
-  //   leaderPhone: "",
-  //   leaderEmail: "",
-  //   leaderReg: "",
-  //   leaderBranch: "",
-  //   leaderYear: "",
-  //   transId: "",
-  // });
+  const [amount, setamount] = useState("");
+  const [discount, setdiscount] = useState("");
+  const [reduced, setreduced] = useState("");
+  const [loading, setloading] = useState(Boolean);
+  const [tcCheck, setTcCheck] = useState(false);
+  const [captcha, setcaptcha] = useState(true);
+  const [globalTruth, setglobalTruth] = useState(Boolean);
+  const [formData, setFormData] = useState({
+    checkboxValues: [],
+    totalTeamMember: "",
+    paidAmt: amount,
+    workshop: "",
+    leaderName: "",
+    leaderPhone: "",
+    leaderEmail: "",
+    leaderReg: "",
+    leaderBranch: "",
+    leaderYear: "",
+    transId: "",
+  });
 
-  // const termCheck = () => {
-  //   setTcCheck(!tcCheck);
-  // };
+  const termCheck = () => {
+    setTcCheck(!tcCheck);
+  };
 
-  // const PriceCalculator = (options) => {
+  const PriceCalculator = (options) => {
 
    
-  //     setTcCheck(false);
-  //     if (Array.isArray(options)) {
-  //       document.getElementById("checkbox").checked = false;
+      setTcCheck(false);
+      if (Array.isArray(options)) {
+        document.getElementById("checkbox").checked = false;
 
-  //       setSelectedOptions(
-  //         options.map((opt) => [opt.value, opt.amount])
-  //       );
-  //     }
-    
-
-  //   if (formData.checkboxValues.length == 1) {
-  //     setamount(formData.checkboxValues.length * 400);
-  //     setdiscount(null)
-  //     setreduced(null)
-  //   }
-  //   else if (formData.checkboxValues.length == 2) {
-  //     setamount((formData.checkboxValues.length * 400) - 80);
-  //     setdiscount("10% Discount Applied")
-  //     setreduced("₹ 800")
-
-  //   }
-  //   else if (formData.checkboxValues.length == 3) {
-  //     setamount((formData.checkboxValues.length * 400) - 180);
-  //     setdiscount("15% Discount Applied")
-  //     setreduced("₹ 1200")
+        setSelectedOptions(
+          options.map((opt) => [opt.value, opt.amount])
+        );
+      }
+    setamount(formData.checkboxValues.length * 400);
 
 
-  //   }
-  //   else {
-  //     setamount(0);
-  //     setdiscount(null)
-  //     setreduced(null)
-  //   }
-  // };
+    // if (formData.checkboxValues.length == 1) {
+    //   setamount(formData.checkboxValues.length * 400);
+    //   setdiscount(null)
+    //   setreduced(null)
+    // }
+    // else if (formData.checkboxValues.length == 2) {
+    //   setamount((formData.checkboxValues.length * 400) - 80);
+    //   setdiscount("10% Discount Applied")
+    //   setreduced("₹ 800")
+
+    // }
+    // else if (formData.checkboxValues.length == 3) {
+    //   setamount((formData.checkboxValues.length * 400) - 180);
+    //   setdiscount("15% Discount Applied")
+    //   setreduced("₹ 1200")
+
+
+    // }
+    // else {
+    //   setamount(0);
+    //   setdiscount(null)
+    //   setreduced(null)
+    // }
+  };
   
 
   // const handleCheckboxChange = (e) => {
@@ -160,56 +161,56 @@ const Form = () => {
   //   }
   // };
 
-  // const handleSubmit = async (e) => {
-  //   setloading(true);
-  //   e.preventDefault();
+  const handleSubmit = async (e) => {
+    setloading(true);
+    e.preventDefault();
 
-  //   // if (e.target.checked) {
-  //   //   setCheckboxValues(...formData.checkboxValues, e.target.value);
-  //   // } else {
-  //   //   setCheckboxValues(
-  //   //     checkboxValues.filter((value) => value !== e.target.value)
-  //   //   );
-  //   // }
-  //   console.log(formData);
-  //   const response = await fetch(`https://rmaggedon.vercel.app/createuser`, {
-  //     method: "POST", // *GET, POST, PUT, DELETE, etc.
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       // 'Content-Type': 'application/x-www-form-urlencoded',
-  //     },
-  //     body: JSON.stringify(formData), // body data type must match "Content-Type" header
-  //   });
-  //   const json = await response.json();
-  //   console.log(formData);
-  //   if (json.success) {
-  //     e.preventDefault();
-  //     setloading(false);
-  //     alert(
-  //       "You have been successfully Registered for the events, Please check your emails for further updates"
-  //     );
-  //     location.reload();
-  //   } else {
-  //     alert("Credentials that you entered must be unique");
-  //     location.reload();
-  //     setloading(false);
-  //   }
-  // };
+    // if (e.target.checked) {
+    //   setCheckboxValues(...formData.checkboxValues, e.target.value);
+    // } else {
+    //   setCheckboxValues(
+    //     checkboxValues.filter((value) => value !== e.target.value)
+    //   );
+    // }
+    console.log(formData);
+    const response = await fetch(`https://rmaggedon.vercel.app/createuser`, {
+      method: "POST", // *GET, POST, PUT, DELETE, etc.
+      headers: {
+        "Content-Type": "application/json",
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: JSON.stringify(formData), // body data type must match "Content-Type" header
+    });
+    const json = await response.json();
+    console.log(formData);
+    if (json.success) {
+      e.preventDefault();
+      setloading(false);
+      alert(
+        "You have been successfully Registered for the events, Please check your emails for further updates"
+      );
+      location.reload();
+    } else {
+      alert("Credentials that you entered must be unique");
+      location.reload();
+      setloading(false);
+    }
+  };
 
 
-  // useEffect(() => {
-  // PriceCalculator()
+  useEffect(() => {
+  PriceCalculator()
 
-  //   if (tcCheck == true && captcha == false) {
-  //     setglobalTruth(true);
-  //     // console.log(globalTruth);
-  //     // console.log(selectedOptions);
-  //     // console.log(formData.checkboxValues);
-  //   }
+    if (tcCheck == true && captcha == false) {
+      setglobalTruth(true);
+      // console.log(globalTruth);
+      // console.log(selectedOptions);
+      // console.log(formData.checkboxValues);
+    }
 
-  //   setFormData({ ...formData, checkboxValues: selectedOptions });
-  //   // console.log(formData.totalTeamMember);
-  // }, [globalTruth, tcCheck, captcha]);   
+    setFormData({ ...formData, checkboxValues: selectedOptions });
+    // console.log(formData.totalTeamMember);
+  }, [globalTruth, tcCheck, captcha]);   
   // // const handleChange = (e) => {
   // //   setFormData({ ...formData, [e.target.name]: e.target.value });
   // //   console.log(formData.totalTeamMember)
@@ -237,7 +238,7 @@ const Form = () => {
           content="Registration, Rmaggedon 2023, form, game registration"
         />
       </Helmet>
-      {/* <div className="form" onSubmit={handleSubmit} id="form">
+      <div className="form" onSubmit={handleSubmit} id="form">
         <h1 className="form_title">Registration Form</h1>
         <form action="" className="form_main">
           <fieldset>
@@ -500,7 +501,7 @@ const Form = () => {
           <div className="submitt">
             <h1 className="amount-display mt-[20px]">
               <span>Total Amount :</span> ₹{amount}/- <br />
-              <h6 className="Discount-style">{discount} <span>{reduced}</span></h6>
+              {/* <h6 className="Discount-style">{discount} <span>{reduced}</span></h6> */}
             </h1>
             <h2 className="note-style"> Note: Make sure that captcha and the T&C box should be checked for the amount to be paid!</h2>
 
@@ -534,11 +535,11 @@ const Form = () => {
             </button>
           </div>
         </form>
-      </div> */}
-      <div className="form" id="form">
+      </div>
+      {/* <div className="form" id="form">
       <h2 className="closed text-gradient">Registration for RMAGEDDON 2023 has been Closed!</h2>
       <h1 className=" close-2 text-gradient">Thanks For Visiting Us!!</h1>
-      </div>
+      </div> */}
     </>
   );
 };
