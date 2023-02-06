@@ -66,7 +66,7 @@ const InputOption = ({
 
 const allOptions = [
   { value: "RETROMANIA", amount: 400, label: "RETROMANIA" },
-  { value: "PAC RUNNER", amount: 400, label: "PAC RUNNER" },
+  { value: "PAC RUNNER", amount: 600, label: "PAC RUNNER" },
   { value: "NINJA CLASH", amount: 400, label: "NINJA CLASH" },
 ];
 
@@ -82,7 +82,7 @@ const Form = () => {
   /////////////////////////////////////////////////////////////////////////////////
   const [selectedOptions, setSelectedOptions] = useState([]);
   // const [selectedOptions, setSelectedOptions] = useState([]);
-  const [amount, setamount] = useState("");
+  const [amount, setamount] = useState('');
   const [discount, setdiscount] = useState("");
   const [reduced, setreduced] = useState("");
   const [loading, setloading] = useState(Boolean);
@@ -118,10 +118,11 @@ const Form = () => {
           options.map((opt) => [opt.value, opt.amount])
         );
       }
-    setamount(formData.checkboxValues.length * 400);
+      console.log(selectedOptions)
 
-
-    // if (formData.checkboxValues.length == 1) {
+    // setamount(formData.checkboxValues.length * 400);
+    // setamount(options.map((opt) =>  formData.checkboxValues.length*opt.amount));
+    // if (formData.checkboxValues.values == 1) {
     //   setamount(formData.checkboxValues.length * 400);
     //   setdiscount(null)
     //   setreduced(null)
@@ -210,7 +211,17 @@ const Form = () => {
 
     setFormData({ ...formData, checkboxValues: selectedOptions });
     // console.log(formData.totalTeamMember);
-  }, [globalTruth, tcCheck, captcha]);   
+    var amountpay = []
+    selectedOptions.map((opt) => amountpay.push(Number(opt[1])))
+    console.log(amountpay)
+          let sum = 0
+
+    for (let i = 0; i < amountpay.length; i++)
+      sum += amountpay[i]; 
+     setamount(sum)
+
+
+  }, [globalTruth, tcCheck, captcha, selectedOptions]);   
   // // const handleChange = (e) => {
   // //   setFormData({ ...formData, [e.target.name]: e.target.value });
   // //   console.log(formData.totalTeamMember)
