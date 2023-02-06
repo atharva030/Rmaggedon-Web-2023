@@ -530,8 +530,12 @@ const Form = () => {
                 <a href="https://www.rnxg.co.in/Privicy"> Privacy</a> and
                 <a href="https://www.rnxg.co.in/Terms">
                   Terms and Conditions.
-                </a>           
- {/* <h6 className="rate-style">Per Game ₹400/-</h6> */}
+                </a>      
+                <div className="flex-rate-style"> 
+ <h6 className="rate-style">Pac Runner ₹600/-</h6>
+ <h6 className="rate-style">Retromania ₹400/-</h6>
+ <h6 className="rate-style">Ninja Clash ₹400/-</h6>
+ </div>    
               </label>
             </fieldset>
             <button

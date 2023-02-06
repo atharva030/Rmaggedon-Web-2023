@@ -16,6 +16,7 @@
 .rate-style{
   font-size: 16px;
   color: red;
+  padding: 5px 10px;
 }
 .Discount-style{
   font-size: 16px;
@@ -557,7 +558,9 @@ display: flex;
   .check {
     height: 60px;
   }
-
+.flex-rate-style{
+  flex-direction: column;
+}
   .css-b62m3t-container {
     width: 100% !important;
 
@@ -710,5 +713,7 @@ display: flex;
 }
 .close-2{
   font-size: 29px;
-
+}
+.flex-rate-style{
+  display: flex;
 }
